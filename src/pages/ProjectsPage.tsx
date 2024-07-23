@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Project, Tag } from '../types';
-import { projectsData } from './projects/projects';
+import { projectsData } from '../projects/projects';
 
-import ProjectShowcase from './ProjectShowcase';
-import ProjectOthers from './ProjectOthers';
-import ProjectDisplay from './ProjectDisplay';
-import ProjectTag from './ProjectTag';
+import ProjectShowcase from '../components/ProjectShowcase';
+import ProjectOthers from '../components/ProjectOthers';
+import ProjectDisplay from '../components/ProjectDisplay';
+import ProjectTag from '../components/ProjectTag';
 
 const ProjectsPage: React.FC = () => {
     const [projects, setProjects] = useState<Project[]>([]);

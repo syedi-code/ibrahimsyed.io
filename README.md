@@ -2,7 +2,7 @@
 
 ## Overview
 
-My personal website and portfolio, hosted at ibrahimsyed.io. Built using React with TypeScript, with animations powered by framer-motion.
+My personal website and portfolio, hosted at [ibrahimsyed.io](https://ibrahimsyed.io/). Built using React with TypeScript, with animations powered by framer-motion.
 
 ## Technologies Used
 
