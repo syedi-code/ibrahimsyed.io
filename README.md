@@ -1,46 +1,72 @@
-# Getting Started with Create React App
+# ibrahimsyed.io
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+My personal website and portfolio, hosted at ibrahimsyed.io. Built using React with TypeScript, with animations powered by framer-motion.
 
-In the project directory, you can run:
+## Technologies Used
 
-### `npm start`
+- **React**: A JavaScript library for building user interfaces.
+- **TypeScript**: A typed superset of JavaScript that compiles to plain JavaScript.
+- **framer-motion**: A library for animations and gestures in React.
+- **CSS Modules**: Scoped CSS for styling components.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Getting Started
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Follow these instructions to set up and run the project locally.
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Node.js**: Ensure you have Node.js installed. You can download it from [nodejs.org](https://nodejs.org/).
 
-### `npm run build`
+### Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **Clone the repository**:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    ```sh
+    git clone https://github.com/yourusername/your-repo-name.git
+    cd your-repo-name
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. **Install dependencies**:
 
-### `npm run eject`
+    ```sh
+    npm install
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Running the Project
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. **Start the development server**:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+    ```sh
+    npm start
+    ```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+2. **Open your browser** and navigate to `http://localhost:3000` to see the website in action.
 
-## Learn More
+## Project Structure
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Here's an overview of the project's structure:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+/src
+├── /components
+│ ├── LandingHeader.tsx
+│ └── ... (other components)
+├── /pages
+│ ├── ProjectsPage.tsx
+│ └── ... (other pages)
+├── /projects
+│ └── descriptions.tsx
+│ └── ... (other project data)
+├── App.tsx
+├── index.tsx
+└── ... (misc)
+```
+
+## Contact
+
+Feel free to reach out if you have any questions or suggestions!
+
+- **Email**: [your.email@example.com](mailto:iysyed01@gmail.com)
+- **LinkedIn**: [your-linkedin-profile](https://www.linkedin.com/in/ibrahim-syed-a93316220/)

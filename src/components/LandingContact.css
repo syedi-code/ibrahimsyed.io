@@ -1,0 +1,31 @@
+.github {
+    color: black;
+}
+
+.github:hover {
+    color: blue;
+}
+
+.linkedin {
+    color: black;
+}
+
+.linkedin:hover {
+    color: red;
+}
+
+.email {
+    color: black;
+}
+
+.email:hover {
+    color: green;
+}
+
+.resume {
+    color: black;
+}
+
+.resume:hover {
+    color: powderblue;
+}

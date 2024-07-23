@@ -1,24 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
+import Sidebar from './components/Sidebar';
+import SidebarSketch from './components/SidebarSketch';
+import LandingPage from './pages/LandingPage';
+import ProjectsPage from './pages/ProjectsPage';
+import PortfolioPage from './pages/PortfolioPage';
 import './App.css';
 
 function App() {
+  const [currentPage, setCurrentPage] = useState('landing');
+
+  const changePage = (page: string) => {
+    setCurrentPage(page);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <SidebarSketch />
+      <Sidebar changePage={changePage}/>
+
+      <div className="content">
+        {currentPage === 'landing' && <LandingPage />}
+        {currentPage === 'projects' && <ProjectsPage />}
+        {currentPage === 'portfolio' && <PortfolioPage />}
+      </div>
     </div>
   );
 }
