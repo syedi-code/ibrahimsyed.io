@@ -38,7 +38,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         position: 'relative',
         overflow: 'hidden',
         border: '2px solid #000000',
-        transition: 'transform 0.3s, bow-shadow 0.3s',
+        willChange: 'transform',
     };
 
     const nameStyle: React.CSSProperties = {
@@ -96,11 +96,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     };
 
     const contentVariants = {
+        initial: {
+
+        },
         hover: {
             transform: 'translate(-10px, -10px)',
             boxShadow: '10px 10px 0px rgba(0, 0, 0, 0.2)',
         }
-    }
+    };
 
     const getRandomColor = () => {
         const randomIndex = Math.floor(Math.random() * fillColors.length);
@@ -129,11 +132,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             >
                 <motion.div
                     style={contentStyle}
+                    variants={contentVariants}
                     initial="initial"
                     whileHover="hover"
                     onHoverStart={handleHoverStart}
                     onHoverEnd={handleHoverEnd}
-                    variants={contentVariants}
                     onClick={handleClick}
                 >
                     <motion.div

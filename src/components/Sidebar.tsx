@@ -57,13 +57,14 @@ const Sidebar: React.FC<SidebarProps> = ({ changePage }) => {
     };
 
     const containerStyle: React.CSSProperties = {
-        textAlign: 'center'
+        textAlign: 'left',
+        paddingLeft: '2vw'
     }
 
     const spanStyle: React.CSSProperties = {
       backgroundColor: 'white',
       padding: '5px 10px',
-      border: '2px solid black'
+      border: '1px solid black'
     }
 
     return (

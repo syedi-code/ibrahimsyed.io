@@ -17,7 +17,7 @@ export const PersonalWebsiteLinks: React.FC = () => {
             <span>
                 <a href="https://github.com/syedi-code/website" target="_blank" rel="noopener noreferrer">source</a>
                 {" • "}
-                <a href="https://ibrahimsyed.io/">website</a>
+                <a href="ibrahimsyed.io/">ibrahimsyed.io</a>
             </span>
         </div>
     );
@@ -29,7 +29,7 @@ export const HistoricleLinks: React.FC = () => {
             <span>
                 <a href="https://github.com/syedi-code/historicle" target="_blank" rel="noopener noreferrer">source</a>
                 {" • "}
-                <a href="https://historiclega.me/">website</a>
+                <a href="https://historiclega.me/">historiclega.me</a>
             </span>
         </div>
     );

@@ -68,5 +68,5 @@ Here's an overview of the project's structure:
 
 Feel free to reach out if you have any questions or suggestions!
 
-- **Email**: [your.email@example.com](mailto:iysyed01@gmail.com)
-- **LinkedIn**: [your-linkedin-profile](https://www.linkedin.com/in/ibrahim-syed-a93316220/)
+- **Email**: [iysyed01@gmail.com](mailto:iysyed01@gmail.com)
+- **LinkedIn**: [Ibrahim Syed](https://www.linkedin.com/in/ibrahim-syed-a93316220/)

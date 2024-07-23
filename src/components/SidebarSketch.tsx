@@ -8,10 +8,10 @@ const SidebarSketch: React.FC = () => {
         const sketch = (p: p5) => {
             let padding = 3; // Adjust this value to control the space between rhombuses
             let minSize = 0; // Minimum size of the rhombus
-            let maxSize = 15; // Maximum size of the rhombus
+            let maxSize = 24; // Maximum size of the rhombus
             let hues = [225, 360];
             let h = 360;
-            let falloffIntensity = 100;
+            let falloffIntensity = 300;
 
             p.setup = () => {
                 const canvas = p.createCanvas(window.innerWidth * 0.1, window.innerHeight).parent(sketchRef.current!);
@@ -82,7 +82,7 @@ const SidebarSketch: React.FC = () => {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        borderRight: '2px solid black'
+        borderRight: '1px solid black'
     };
 
     return (

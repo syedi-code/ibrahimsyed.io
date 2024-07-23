@@ -11,8 +11,8 @@ export const projectsData: Project[] = [
       "year": 2024,
       "scale": "major",
       "img": "react.svg",
-      "preview": "An overhaul of my personal website with an updated Projects page, portfolio, and various interactive components. Made with React in Typescript and animated using framer-motion.",
-      "description": Descriptions.HistoricleDescription,
+      "preview": "An overhaul of my personal website with an updated Projects page, portfolio, and various interactive components.",
+      "description": Descriptions.PersonalWebsiteDescription,
       "links": Links.PersonalWebsiteLinks,
     },     
     {

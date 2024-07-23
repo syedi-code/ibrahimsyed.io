@@ -106,3 +106,18 @@ export const ParticleSystemDescription: React.FC = () => {
         </AnimatePresence>
     );
 };
+
+export const PersonalWebsiteDescription: React.FC = () => {
+    return (
+        <AnimatePresence>
+            <motion.div
+                style={descriptionStyle}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+            >
+                A newly-designed personal website with an updated Projects page and portfolio showcasing key projects. Interactive components ensure a dynamic user experience. The site is built with React using TypeScript, and animations are handled with React library framer-motion for improved presentation and functionality.
+            </motion.div>
+        </AnimatePresence>
+    );
+}
