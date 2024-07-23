@@ -15,7 +15,7 @@ export const PersonalWebsiteLinks: React.FC = () => {
     return (
         <div style={linksContainerStyle}>
             <span>
-                <a href="https://github.com/syedi-code/website" target="_blank" rel="noopener noreferrer">source</a>
+                <a href="https://github.com/syedi-code/ibrahimsyed.io" target="_blank" rel="noopener noreferrer">source</a>
                 {" • "}
                 <a href="ibrahimsyed.io/">ibrahimsyed.io</a>
             </span>
