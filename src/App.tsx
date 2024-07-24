@@ -37,9 +37,9 @@ function App() {
   };
 
   const highlightStyle: React.CSSProperties = {
-    backgroundColor: '#a83e32',
+    backgroundColor: '#DD5746',
     color: '#ffffff',
-    padding: '0.5em 0 0.5em 0',
+    padding: '0.5em',
     maxWidth: '75vw'
   };
 
@@ -48,7 +48,7 @@ function App() {
       {isMobile ? (
         <div style={mobileMessageStyle}>
           <span style={highlightStyle}>
-            FOR THE BEST EXPERIENCE, PLEASE VIEW ON DESKTOP.
+            Mobile site under development.
           </span>
         </div>
       ) : (
