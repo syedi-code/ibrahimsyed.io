@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import Div3D from './Div3D';
 import SidebarSketch from './SidebarSketch';
+import { link } from 'fs';
 
 interface SidebarProps {
     changePage: (page: string) => void;
@@ -47,13 +49,11 @@ const Sidebar: React.FC<SidebarProps> = ({ changePage }) => {
 
     const linkStyle: React.CSSProperties = {
         display: 'block',
-        padding: '10px 15px',
         color: 'black',
         textDecoration: 'none',
         fontFamily: 'DM Sans, sans-serif',
         fontSize: '20px',
         fontWeight: 'bold',
-        marginBottom: '25px'
     };
 
     const containerStyle: React.CSSProperties = {
@@ -70,26 +70,21 @@ const Sidebar: React.FC<SidebarProps> = ({ changePage }) => {
     return (
         <motion.div style={sidebarStyle} initial="hidden" animate="visible" variants={sidebarVariants}>
             <div style={containerStyle}>
-                <motion.a 
-                    href="#"
-                    variants={linkVariants}
-                    initial="initial" 
-                    whileHover="hover" 
-                    style={linkStyle} 
+                <Div3D
+                    borderRadius='20px'
                     onClick={() => changePage('landing')}
+                    dropShadowColor='rgba(0, 0, 0, 1)'
                 >
-                    <span style={spanStyle}>ABOUT</span>
-                </motion.a>
-                <motion.a 
-                    href="#"
-                    variants={linkVariants}
-                    initial="initial" 
-                    whileHover="hover" 
-                    style={linkStyle} 
+                    <div style={linkStyle}>ABOUT</div>
+                </Div3D>
+
+                <Div3D
+                    borderRadius='20px'
                     onClick={() => changePage('projects')}
+                    dropShadowColor='rgba(0, 0, 0, 1)'
                 >
-                    <span style={spanStyle}>PROJECTS</span>
-                </motion.a>
+                    <div style={linkStyle}>PROJECTS</div>
+                </Div3D>
             </div>
         </motion.div>
     );

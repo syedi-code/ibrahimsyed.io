@@ -101,7 +101,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         },
         hover: {
             transform: 'translate(-10px, -10px)',
-            boxShadow: '10px 10px 0px rgba(0, 0, 0, 0.2)',
+            boxShadow: '10px 10px 0px rgba(199, 199, 199, 1)',
         }
     };
 
@@ -126,45 +126,43 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     }
 
     return (
-        //<a href={project.url} style={{ textDecoration: 'none', color: 'initial' }}target="_blank" rel="noopener noreferrer">
-            <motion.div 
-                style={containerStyle}
+        <motion.div 
+            style={containerStyle}
+        >
+            <motion.div
+                style={contentStyle}
+                variants={contentVariants}
+                initial="initial"
+                whileHover="hover"
+                onHoverStart={handleHoverStart}
+                onHoverEnd={handleHoverEnd}
+                onClick={handleClick}
             >
                 <motion.div
-                    style={contentStyle}
-                    variants={contentVariants}
-                    initial="initial"
-                    whileHover="hover"
-                    onHoverStart={handleHoverStart}
-                    onHoverEnd={handleHoverEnd}
-                    onClick={handleClick}
-                >
-                    <motion.div
-                        style={overlayStyle}
-                        variants={overlayVariants}
-                    />
+                    style={overlayStyle}
+                    variants={overlayVariants}
+                />
 
-                    <div>
-                        <h2 style={nameStyle}>{project.name}</h2>
-                        <div style={infoContainerStyle}>
-                            <div>
-                                <p style={yearStyle}>{project.year}</p>
+                <div>
+                    <h2 style={nameStyle}>{project.name}</h2>
+                    <div style={infoContainerStyle}>
+                        <div>
+                            <p style={yearStyle}>{project.year}</p>
 
-                                {tags.map(tag => (
-                                    <ProjectTag tag={tag} onClick={() => {}} doesHoverAnimation={false}  />
-                                ))}
-                            </div>
+                            {tags.map(tag => (
+                                <ProjectTag tag={tag} onClick={() => {}} doesHoverAnimation={false}  />
+                            ))}
+                        </div>
 
-                            <div style={infoChildStyle}>
-                                {project.img != "" && (<img style={thumbnailStyle} src={`/img/projects/${project.img}`} />)}
-                            </div>
+                        <div style={infoChildStyle}>
+                            {project.img != "" && (<img style={thumbnailStyle} src={`/img/projects/${project.img}`} />)}
                         </div>
                     </div>
-                    
-                    <ProjectDescription isHovered={isHovered} project={project} showDescription={showDescription} onClick={handleClick} />
-                </motion.div>
+                </div>
+                
+                <ProjectDescription isHovered={isHovered} project={project} showDescription={showDescription} onClick={handleClick} />
             </motion.div>
-        // </a>
+        </motion.div>
     );
 };
 
