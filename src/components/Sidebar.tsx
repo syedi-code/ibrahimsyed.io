@@ -74,6 +74,7 @@ const Sidebar: React.FC<SidebarProps> = ({ changePage }) => {
                     borderRadius='20px'
                     onClick={() => changePage('landing')}
                     dropShadowColor='rgba(0, 0, 0, 1)'
+                    inverted={true}
                 >
                     <div style={linkStyle}>ABOUT</div>
                 </Div3D>
@@ -82,6 +83,7 @@ const Sidebar: React.FC<SidebarProps> = ({ changePage }) => {
                     borderRadius='20px'
                     onClick={() => changePage('projects')}
                     dropShadowColor='rgba(0, 0, 0, 1)'
+                    inverted={true}
                 >
                     <div style={linkStyle}>PROJECTS</div>
                 </Div3D>

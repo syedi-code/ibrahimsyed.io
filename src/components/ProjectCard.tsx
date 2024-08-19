@@ -56,7 +56,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         color: "#a83e32",
         marginTop: '0px',
         marginBottom: '10px'
-    }
+    };
 
     const overlayStyle: React.CSSProperties = {
         position: 'absolute',

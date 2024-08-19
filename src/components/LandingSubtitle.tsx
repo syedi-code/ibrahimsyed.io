@@ -2,10 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
 import Cursor from './Cursor';
 
-const LandingSubtitle: React.FC = () => {
+interface LandingSubtitleProps {
+  color?: string;
+  fontSize?: string;
+  backgroundColor?: string;
+  fontWeight?: string;
+  cursor?: boolean;
+}
+
+const LandingSubtitle: React.FC<LandingSubtitleProps> = ({ color = 'black', fontSize = '32px', backgroundColor = 'transparent', fontWeight = '400', cursor = true }) => {
     const textIndex = useMotionValue(0);
     const texts = [
-        "Programmer, data analyst, sound designer, musician",
+        "Programmer, data analyst, sound designer",
         "Oregon State University '24",
     ];
   
@@ -18,9 +26,11 @@ const LandingSubtitle: React.FC = () => {
     const updatedThisRound = useMotionValue(true);
 
     const subtitleStyle: React.CSSProperties = {
+        color: color,
         fontFamily: 'Aleo, sans-serif',
-        fontWeight: '400',
-        fontSize: '32px',
+        fontWeight: fontWeight,
+        fontSize: fontSize,
+        backgroundColor: backgroundColor,
     }
   
     useEffect(() => {
@@ -53,7 +63,7 @@ const LandingSubtitle: React.FC = () => {
                 {displayText}
             </motion.span>
 
-            <Cursor />
+            <Cursor color={color} />
         </div>
     );
 }

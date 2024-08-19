@@ -4,6 +4,7 @@ export interface Tag {
 }
 
 export interface Project {
+    id: number;
     name: string;
     tags: string[];
     url: string;

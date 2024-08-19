@@ -2,6 +2,12 @@ import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import Sidebar from './components/Sidebar';
 import SidebarSketch from './components/SidebarSketch';
+
+import MobileHeader from './components/MobileHeader';
+import MobilePageSelector from './components/MobilePageSelector';
+import MobileLanding from './pages/MobileLanding';
+import MobileProjects from './pages/MobileProjects';
+
 import LandingPage from './pages/LandingPage';
 import ProjectsPage from './pages/ProjectsPage';
 import PortfolioPage from './pages/PortfolioPage';
@@ -13,7 +19,7 @@ function App() {
 
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
+      setIsMobile(window.innerWidth <= window.innerHeight);
     };
 
     checkMobile();
@@ -23,18 +29,6 @@ function App() {
   const changePage = (page: string) => {
     setCurrentPage(page);
   }
-
-  const mobileMessageStyle: React.CSSProperties = {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '100vh',
-    fontFamily: 'DM Sans, sans-serif',
-    color: '#ffffff', // Add color for better text visibility
-    textAlign: 'center',
-    fontSize: '48px',
-    fontWeight: 'bold'
-  };
 
   const highlightStyle: React.CSSProperties = {
     backgroundColor: '#DD5746',
@@ -46,10 +40,17 @@ function App() {
   return (
     <div>
       {isMobile ? (
-        <div style={mobileMessageStyle}>
-          <span style={highlightStyle}>
-            Mobile site under development.
-          </span>
+        <div className="App">
+          <MobileHeader />
+          
+            <MobilePageSelector 
+              changePage={changePage}
+              currentPage={currentPage}
+            />
+
+            {currentPage === 'landing' && <MobileLanding />}
+            {currentPage === 'projects' && <MobileProjects />}
+          
         </div>
       ) : (
         <div className="App">

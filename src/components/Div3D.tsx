@@ -11,13 +11,30 @@ interface Div3DProps {
   dropShadowColor?: string;
   margin?: string;
   offset?: string;
+  maxWidth?: string;
   onClick?: () => void;
   onHoverStart?: () => void;
   onHoverEnd?: () => void;
+  inverted: boolean;
 }
 
-const Div3D: React.FC<Div3DProps> = ({ children, style, backgroundColor = 'white', cursor, borderRadius = '20px', padding = '15px', dropShadowColor = 'rgba(199, 199, 199, 1)', margin = '0 0 1em 0', offset = '5px', onClick, onHoverStart, onHoverEnd }) => {
-
+const Div3D: React.FC<Div3DProps> = (
+    {
+        children,
+        style,
+        backgroundColor = 'white',
+        cursor,
+        borderRadius = '20px',
+        padding = '15px',
+        dropShadowColor = 'rgba(199, 199, 199, 1)',
+        margin = '0 0 1em 0', offset = '5px',
+        maxWidth = '100%',
+        onClick,
+        onHoverStart,
+        onHoverEnd,
+        inverted
+    }
+) => {
     const contentStyle: React.CSSProperties = {
         display: 'inline-block',
         backgroundColor: backgroundColor,
@@ -25,13 +42,15 @@ const Div3D: React.FC<Div3DProps> = ({ children, style, backgroundColor = 'white
         cursor: 'pointer', // change
         border: '2px solid #000000',
         willChange: 'transform',
-        padding: '15px',
+        padding: padding,
         margin: margin,
+        maxWidth: maxWidth,
     };
 
     const contentVariants = {
         initial: {
-
+            transform: 'none',
+            boxShadow: 'none'
         },
         hover: {
             transform: `translate(-${offset}, -${offset})`,
@@ -40,17 +59,31 @@ const Div3D: React.FC<Div3DProps> = ({ children, style, backgroundColor = 'white
     };
 
     return (
-        <motion.div
-                    style={contentStyle}
-                    variants={contentVariants}
-                    initial="initial"
-                    whileHover="hover"
-                    onClick={onClick}
-                    onHoverStart={onHoverStart}
-                    onHoverEnd={onHoverEnd}
-        >
-            {children}
-        </motion.div>
+        inverted ? (
+            <motion.div
+                style={contentStyle}
+                variants={contentVariants}
+                initial="hover"
+                whileTap="initial"
+                onClick={onClick}
+                onHoverStart={onHoverStart}
+                onHoverEnd={onHoverEnd}
+            >
+                {children}
+            </motion.div>
+        ) : (
+            <motion.div
+                style={contentStyle}
+                variants={contentVariants}
+                initial="initial"
+                whileHover="hover"
+                onClick={onClick}
+                onHoverStart={onHoverStart}
+                onHoverEnd={onHoverEnd}
+            >
+                {children}
+            </motion.div>
+        )
     );
 };
 

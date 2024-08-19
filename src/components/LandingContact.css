@@ -3,7 +3,7 @@
 }
 
 .github:hover {
-    color: blue;
+    color: #4793AF;
 }
 
 .linkedin {
@@ -11,7 +11,7 @@
 }
 
 .linkedin:hover {
-    color: red;
+    color: #FFC470;
 }
 
 .email {
@@ -19,7 +19,7 @@
 }
 
 .email:hover {
-    color: green;
+    color: #4793AF;
 }
 
 .resume {
@@ -27,5 +27,5 @@
 }
 
 .resume:hover {
-    color: powderblue;
+    color: #FFC470;
 }

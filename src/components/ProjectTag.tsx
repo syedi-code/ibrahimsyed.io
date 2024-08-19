@@ -9,9 +9,11 @@ interface ProjectTagProps {
     tag: Tag;
     onClick: () => void;
     doesHoverAnimation: boolean;
+    fontSize?: string;
+    backgroundColor?: string
 }
 
-const ProjectTag: React.FC<ProjectTagProps> = ({ tag, onClick, doesHoverAnimation }) => {
+const ProjectTag: React.FC<ProjectTagProps> = ({ tag, onClick, doesHoverAnimation, fontSize = '12px', backgroundColor }) => {
     const scaleValue: number = doesHoverAnimation ? 0.9 : 1;
     const hoverVariants = {
         initial: {
@@ -27,19 +29,20 @@ const ProjectTag: React.FC<ProjectTagProps> = ({ tag, onClick, doesHoverAnimatio
     };
 
     const tagStyle: React.CSSProperties = {
+        display: 'inline-block',
         cursor: 'pointer',
         marginRight: '10px',
         marginBottom: '10px',
         padding: '5px 10px',
-        backgroundColor: tagColorMap.get(tag.name) || '#000000',
+        backgroundColor: (!backgroundColor) ? tagColorMap.get(tag.name) : backgroundColor,
         color: 'white',
         fontFamily: 'DM Sans, sans-serif',
-        fontSize: '12px',
+        fontSize: fontSize,
         fontWeight: 'bold'
     };
 
     return (
-        <motion.span 
+        <motion.div 
             style={tagStyle}
             onClick={onClick}
             variants={hoverVariants}
@@ -47,7 +50,7 @@ const ProjectTag: React.FC<ProjectTagProps> = ({ tag, onClick, doesHoverAnimatio
             whileHover="hover"
         >
             {tag.name.toUpperCase()}
-        </motion.span>
+        </motion.div>
     );
 }
 
