@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 import { Project, Tag } from '../types';
-import { extractTags } from '../projects/projects';
-import { headerGradient, projectGradientRed, projectGradientBlue, projectGradientYellow } from '../projects/animations';
+import { extractTags } from '../data/projects';
+import { headerGradient, projectGradientRed, projectGradientBlue, projectGradientYellow } from '../data/animations';
 
 import Div3D from './Div3D';
 import ProjectTag from './ProjectTag';

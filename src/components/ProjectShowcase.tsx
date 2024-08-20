@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ProjectListing from './ProjectCard';
-import { projectsData } from '../projects/projects';
+import { projectsData } from '../data/projects';
 import { Project, Tag } from '../types';
 
 const ProjectShowcase: React.FC = () => {

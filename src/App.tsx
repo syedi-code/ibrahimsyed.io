@@ -4,7 +4,7 @@ import Sidebar from './components/Sidebar';
 import SidebarSketch from './components/SidebarSketch';
 
 import MobileHeader from './components/MobileHeader';
-import MobilePageSelector from './components/MobilePageSelector';
+import MobileMenu from './components/MobileMenu';
 import MobileLanding from './pages/MobileLanding';
 import MobileProjects from './pages/MobileProjects';
 
@@ -43,7 +43,7 @@ function App() {
         <div className="App">
           <MobileHeader />
           
-            <MobilePageSelector 
+            <MobileMenu 
               changePage={changePage}
               currentPage={currentPage}
             />

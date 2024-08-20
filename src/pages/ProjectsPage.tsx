@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Project, Tag } from '../types';
-import { projectsData } from '../projects/projects';
+import { projectsData } from '../data/projects';
 
 import ProjectShowcase from '../components/ProjectShowcase';
 import ProjectOthers from '../components/ProjectOthers';

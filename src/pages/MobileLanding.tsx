@@ -1,9 +1,10 @@
 import React from 'react';
-import LandingSubtitle from '../components/LandingSubtitle';
+import { motion } from 'framer-motion';
 
+import LandingSubtitle from '../components/LandingSubtitle';
 import Div3D from '../components/Div3D';
 
-import { primaryGradientLight, primaryGradientMedium } from '../projects/animations';
+import { primaryGradientLight, primaryGradientMedium } from '../data/animations';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faGithubSquare, faLinkedin } from '@fortawesome/free-brands-svg-icons';
@@ -12,6 +13,7 @@ import { faSquareEnvelope, faFilePdf } from '@fortawesome/free-solid-svg-icons';
 const MobileLanding: React.FC = () => {
     const TAG_SPACING = '3px';
 
+    // --------- GENERAL STYLING ---------
     const containerStyle: React.CSSProperties = {
         display: 'flex',
         flexDirection: 'column',
@@ -46,11 +48,12 @@ const MobileLanding: React.FC = () => {
         bottom: 0, // Align with the bottom of the page
         width: '100%', // Ensure it spans the full width of the page
         borderTop: '1px solid black', // Page-long top border
-        padding: '3vh 0', // Optional: add padding
+        padding: '2vh 0', // Optional: add padding
         zIndex: 1000, // Ensure it stays above other content
         backgroundImage: `url("${primaryGradientLight}")`,
         backgroundSize: 'cover',        
         backgroundClip: 'padding-box',  // Clips the background to the text
+        gap: '6vw'
     };
 
     const bodyWrapperStyle: React.CSSProperties = {
@@ -60,10 +63,14 @@ const MobileLanding: React.FC = () => {
     };
 
     const whitespaceStyle: React.CSSProperties = {
-        height: '15vh',
+        height: '20vh',
     }
 
-    // Define different styles for each phrase
+    const boxStyle: React.CSSProperties = {
+        padding: '0',
+    }
+
+    // --------- TAG STYLING ---------
     const dataScienceStyle: React.CSSProperties = {
         backgroundColor: '#F0A8D0', // Red background
         padding: `0 ${TAG_SPACING}`,
@@ -89,9 +96,21 @@ const MobileLanding: React.FC = () => {
         fontWeight: 'bold',
     };
 
-    const boxStyle: React.CSSProperties = {
-        padding: '0',
-    }
+    // --------- FRAMER-MOTION VARIANTS ---------
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        show: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 1, // Adjust the stagger timing as needed
+            },
+        },
+    };
+
+    const itemVariants = {
+        hidden: { opacity: 0, y: 20 },
+        show: { opacity: 1, y: 0, transition: { duration: 1 } },
+    };
 
     return (
         <div style={containerStyle}>
@@ -99,19 +118,24 @@ const MobileLanding: React.FC = () => {
                 <LandingSubtitle color="black" fontSize="6vw" backgroundColor='transparent' fontWeight='600' cursor={false} />
             </div>
             
-            <div style={bodyWrapperStyle}>
-                <div style={bodyStyle}>
+            <motion.div 
+                style={bodyWrapperStyle}
+                variants={containerVariants}
+                initial="hidden"
+                animate="show"
+            >
+                <motion.div style={bodyStyle} variants={itemVariants}>
                     Hi, I'm Ibrahim, a double major in Computer Science and Music Technology at Oregon State University.
-                </div>
+                </motion.div>
 
-                <div style={bodyStyle}>
+                <motion.div style={bodyStyle} variants={itemVariants}>
                     I have a strong background in many disciplines of computer science, including <span style={dataScienceStyle}>data science</span>, <span style={webDevelopmentStyle}>web development</span>, and <span style={programmingMultimediaStyle}>programming for multimedia</span>, <span style={generativeArtStyle}>generative art</span>. These are further detailed on the <span style={projectsStyle}>PROJECTS</span> page.
-                </div>
+                </motion.div>
 
-                <div style={bodyStyle}>
+                <motion.div style={bodyStyle} variants={itemVariants}>
                     I graduated from OSU in the spring, and I am currently looking for job opportunities. I would love to hear from you! Send me an email at <b>iysyed01@gmail.com</b> or download my resume below.
-                </div>
-            </div>
+                </motion.div>
+            </motion.div>
 
             <div style={whitespaceStyle}></div>
 
@@ -121,10 +145,10 @@ const MobileLanding: React.FC = () => {
                         dropShadowColor='rgba(0, 0, 0, 1)'
                         inverted={true}
                         padding='10px'
-                        margin='0 1em 1em 0'
+                        margin='0 1em 0 0'
                     >
                     <a href='https://github.com/syedi-code' >
-                            <FontAwesomeIcon icon={faGithubSquare} style={boxStyle} size='3x' className='github'/>
+                            <FontAwesomeIcon icon={faGithubSquare} style={boxStyle} size='2x' className='github'/>
                     </a>
                 </Div3D>
 
@@ -133,10 +157,10 @@ const MobileLanding: React.FC = () => {
                     dropShadowColor='rgba(0, 0, 0, 1)'
                     inverted={true}
                     padding='10px'
-                    margin='0 1em 1em 0'
+                    margin='0 1em 0 0'
                 >
                     <a href='https://www.linkedin.com/in/ibrahim-syed-a93316220/' >
-                        <FontAwesomeIcon icon={faLinkedin} style={boxStyle} size='3x' className='linkedin' />
+                        <FontAwesomeIcon icon={faLinkedin} style={boxStyle} size='2x' className='linkedin' />
                     </a>
                 </Div3D>
 
@@ -145,10 +169,10 @@ const MobileLanding: React.FC = () => {
                     dropShadowColor='rgba(0, 0, 0, 1)'
                     inverted={true}
                     padding='10px'
-                    margin='0 1em 1em 0'
+                    margin='0 1em 0 0'
                 >
                     <a href='mailto:iysyed01@gmail.com' >
-                        <FontAwesomeIcon icon={faSquareEnvelope} style={boxStyle} size='3x' className='email' />
+                        <FontAwesomeIcon icon={faSquareEnvelope} style={boxStyle} size='2x' className='email' />
                     </a>
                 </Div3D>
 
@@ -157,10 +181,10 @@ const MobileLanding: React.FC = () => {
                     dropShadowColor='rgba(0, 0, 0, 1)'
                     inverted={true}
                     padding='10px'
-                    margin='0 0 1em 0'
+                    margin='0 0 0 0'
                 >
                     <a href='/img/resume.pdf' >
-                        <FontAwesomeIcon icon={faFilePdf} style={boxStyle} size='3x' className='resume' />
+                        <FontAwesomeIcon icon={faFilePdf} style={boxStyle} size='2x' className='resume' />
                     </a>
                 </Div3D>
             </div>

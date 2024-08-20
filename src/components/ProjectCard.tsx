@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Project, Tag } from '../types';
 import { motion } from 'framer-motion';
-import { tagColorMap, extractTags } from '../projects/projects';
+import { tagColorMap, extractTags } from '../data/projects';
 
 import ProjectTag from './ProjectTag';
 import ProjectDescription from './ProjectDescription';

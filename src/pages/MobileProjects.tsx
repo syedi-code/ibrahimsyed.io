@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Project, Tag } from '../types';
-import { projectsData } from '../projects/projects';
+import { projectsData } from '../data/projects';
 
 import MobileProjectCard from '../components/MobileProjectCard';
 

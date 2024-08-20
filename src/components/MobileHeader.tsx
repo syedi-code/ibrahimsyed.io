@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
-import { waveBackgroundStaticLightBlue, primaryGradientLight, primaryGradientMedium, primaryGradient } from '../projects/animations';
+import { waveBackgroundStaticLightBlue, primaryGradientLight, primaryGradientMedium, primaryGradient, waveBackground25PercentRedIncreasedAmplitude } from '../data/animations';
 
 const MobileHeader: React.FC = () => {
     const headerRef = useRef<HTMLDivElement>(null);
@@ -11,8 +12,8 @@ const MobileHeader: React.FC = () => {
         position: 'relative',
         display: 'inline-block',
         padding: '0',
-        margin: '5vh auto 1.5vh auto',  // Center the header horizontally
-        width: '75%',  // Set width based on text
+        margin: '5vh auto 1.5vh auto',
+        width: '75%',
         backgroundColor: 'black'
     };
 
@@ -22,11 +23,11 @@ const MobileHeader: React.FC = () => {
         fontWeight: 'bold',
         letterSpacing: '3px',
         textAlign: 'center',
-        position: 'relative',  // Stack above the background
+        position: 'relative',
         padding: '0',
         backgroundImage: `url("${primaryGradientLight}")`,
         backgroundSize: 'cover',
-        backgroundClip: 'text',  // Clips the background to the text
+        backgroundClip: 'text',
         WebkitBackgroundClip: 'text',
         color: 'transparent',
         //textShadow: '3px 1px black, 4px 2px black, 5px 3px black, -1px -1px 0 black, 1px -1px 0 black, -1px  1px 0 black, 1px  1px 0 black', // drop shadow
@@ -39,9 +40,9 @@ const MobileHeader: React.FC = () => {
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'transparent',
-        backgroundImage: `url("${waveBackgroundStaticLightBlue}")`,
+        backgroundImage: `url("${waveBackground25PercentRedIncreasedAmplitude}")`,
         backgroundSize: 'cover',
-        backgroundClip: 'text',  // Clips the background to the text
+        backgroundClip: 'text',
     }
 
     return (
@@ -58,11 +59,18 @@ const MobileHeader: React.FC = () => {
             </style>
             
             <div style={parentContainerStyle}>
-                <div style={headerContainerStyle}>
-                    <div style={headerStyle}>
-                        IBRAHIM SYED
-                    </div>
-                </div>
+                <AnimatePresence>
+                        <motion.div style={headerContainerStyle}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.5 }}
+                        >
+                            <div style={headerStyle}>
+                                IBRAHIM SYED
+                            </div>
+                        </motion.div>
+                </AnimatePresence>
             </div>
         </>
     );

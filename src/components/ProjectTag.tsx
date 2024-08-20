@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 import { Tag } from '../types'
-import { tagColorMap } from '../projects/projects';
+import { tagColorMap } from '../data/projects';
 import { hover } from '@testing-library/user-event/dist/hover';
 
 interface ProjectTagProps {
