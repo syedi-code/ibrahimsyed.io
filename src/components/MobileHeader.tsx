@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-import { waveBackgroundStaticLightBlue, primaryGradientLight, primaryGradientMedium, primaryGradient, waveBackground25PercentRedIncreasedAmplitude } from '../data/animations';
+import { waveBackgroundStaticLightBlue, primaryGradientLight, primaryGradientMedium, primaryGradient, waveBackground25PercentRedIncreasedAmplitude, waveBackground75PercentRedIncreasedAmplitude } from '../data/animations';
 
 const MobileHeader: React.FC = () => {
     const headerRef = useRef<HTMLDivElement>(null);
@@ -41,9 +41,13 @@ const MobileHeader: React.FC = () => {
         alignItems: 'center',
         backgroundColor: 'transparent',
         backgroundImage: `url("${waveBackground25PercentRedIncreasedAmplitude}")`,
-        backgroundSize: 'cover',
-        backgroundClip: 'text',
-    }
+        backgroundSize: '100% 100%',  // Ensure it scales properly within the parent div
+        backgroundClip: 'padding-box',
+        WebkitBackgroundClip: 'padding-box',
+        width: '100%',
+        height: '100%',
+        overflow: 'hidden',  // Ensure no overflow issues on Firefox
+    };
 
     return (
         <>
