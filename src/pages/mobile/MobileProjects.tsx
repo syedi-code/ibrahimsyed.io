@@ -2,7 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Project, Tag } from '../../types';
 import { projectsData } from '../../data/projects';
 
+import DivSVG from '../../components/common/DivSVG';
+
 import MobileProjectCard from '../../components/mobile/MobileProjectCard';
+
+import { blueGradientDarker } from '../../data/animations';
 
 const MobileProjects: React.FC = () => {
     const [projects, setProjects] = useState<Project[]>([]);
@@ -16,7 +20,7 @@ const MobileProjects: React.FC = () => {
         flexDirection: 'column',
         alignItems: 'center',
         width: '100%',
-        marginTop: '3vh'
+        paddingTop: '3vh'
     };
 
     const headerStyle: React.CSSProperties = {
@@ -28,12 +32,11 @@ const MobileProjects: React.FC = () => {
     };
 
     return (
-        <div style={containerStyle}>
-            
+        <DivSVG style={containerStyle} background={blueGradientDarker}>
             {projects.map(project => (
                     <MobileProjectCard key={project.name} project={project} />
             ))}
-        </div>
+        </DivSVG>
     );
 }
 

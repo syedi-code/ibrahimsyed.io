@@ -54,6 +54,7 @@ const MobileProjectCard: React.FC<MobileProjectCardProps> = ({ project }) => {
     const previewStyle: React.CSSProperties = {
         fontFamily: 'DM Sans, serif',
         margin: `${ITEM_MARGIN}`,
+        color: 'black',
     };
 
     const yearStyle: React.CSSProperties = {

@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-import LandingSubtitle from '../../components/common/LandingSubtitle';
 import Div3D from '../../components/common/Div3D';
+
+import LandingSubtitle from '../../components/common/LandingSubtitle';
+import ContactBar from '../../components/common/ContactBar';
 
 import { primaryGradientLight, primaryGradientMedium } from '../../data/animations';
 
@@ -60,6 +62,7 @@ const MobileLanding: React.FC = () => {
         backgroundColor: 'black', // Black background
         padding: '20px', // Optional: Add padding inside the wrapper
         borderRadius: '8px', // Optional: Add rounded corners
+        marginBottom: '3vh'
     };
 
     const whitespaceStyle: React.CSSProperties = {
@@ -117,8 +120,8 @@ const MobileLanding: React.FC = () => {
             <div style={subtitleWrapperStyle}>
                 <LandingSubtitle color="black" fontSize="6vw" backgroundColor='transparent' fontWeight='600' cursor={false} />
             </div>
-            
-            <motion.div 
+
+            <motion.div
                 style={bodyWrapperStyle}
                 variants={containerVariants}
                 initial="hidden"
@@ -137,57 +140,7 @@ const MobileLanding: React.FC = () => {
                 </motion.div>
             </motion.div>
 
-            <div style={whitespaceStyle}></div>
-
-            <div style={linksContainerStyle}>
-                <Div3D
-                        borderRadius='20px'
-                        dropShadowColor='rgba(0, 0, 0, 1)'
-                        inverted={true}
-                        padding='10px'
-                        margin='0 1em 0 0'
-                    >
-                    <a href='https://github.com/syedi-code' >
-                            <FontAwesomeIcon icon={faGithubSquare} style={boxStyle} size='2x' className='github'/>
-                    </a>
-                </Div3D>
-
-                <Div3D
-                    borderRadius='20px'
-                    dropShadowColor='rgba(0, 0, 0, 1)'
-                    inverted={true}
-                    padding='10px'
-                    margin='0 1em 0 0'
-                >
-                    <a href='https://www.linkedin.com/in/ibrahim-syed-a93316220/' >
-                        <FontAwesomeIcon icon={faLinkedin} style={boxStyle} size='2x' className='linkedin' />
-                    </a>
-                </Div3D>
-
-                <Div3D
-                    borderRadius='20px'
-                    dropShadowColor='rgba(0, 0, 0, 1)'
-                    inverted={true}
-                    padding='10px'
-                    margin='0 1em 0 0'
-                >
-                    <a href='mailto:iysyed01@gmail.com' >
-                        <FontAwesomeIcon icon={faSquareEnvelope} style={boxStyle} size='2x' className='email' />
-                    </a>
-                </Div3D>
-
-                <Div3D
-                    borderRadius='20px'
-                    dropShadowColor='rgba(0, 0, 0, 1)'
-                    inverted={true}
-                    padding='10px'
-                    margin='0 0 0 0'
-                >
-                    <a href='/img/resume.pdf' >
-                        <FontAwesomeIcon icon={faFilePdf} style={boxStyle} size='2x' className='resume' />
-                    </a>
-                </Div3D>
-            </div>
+            <ContactBar iconSize='2x' padding='0px' />
         </div>
     );
 }

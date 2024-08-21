@@ -1,6 +1,22 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+/*
+*
+*   Div3D
+*
+*   A wrapper around <div> with a '3-D' effect where
+*   a child item will appear to 'pop out' of the screen
+*   on hover. Alternatively, if 'inverted' is true, the
+*   <div> will instead start 'popped out' and push down
+*   on tap.
+*
+*   Input variables include several individual CSS properties
+*   which are then passed down into <div>; maybe a clunky
+*   implementation.
+*
+*/
+
 interface Div3DProps {
   children: React.ReactNode;
   style?: React.CSSProperties;

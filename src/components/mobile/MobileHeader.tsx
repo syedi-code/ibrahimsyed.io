@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-import { waveBackgroundStaticLightBlue, primaryGradientLight, primaryGradientMedium, primaryGradient, waveBackground25PercentRedIncreasedAmplitude, waveBackground75PercentRedIncreasedAmplitude } from '../../data/animations';
+import { waveBackgroundStaticLightBlue, primaryGradientLight, primaryGradientMedium, primaryGradient, waveBackground25PercentRedIncreasedAmplitude, waveBackground75PercentRedIncreasedAmplitude, projectGradientBlue, projectGradientYellow, blueGradientDarker } from '../../data/animations';
 
 const MobileHeader: React.FC = () => {
     const headerRef = useRef<HTMLDivElement>(null);
@@ -14,24 +14,25 @@ const MobileHeader: React.FC = () => {
         padding: '0',
         margin: '5vh auto 1.5vh auto',
         width: '75%',
-        backgroundColor: 'black',
-        borderRadius: '16px'
+        borderRadius: '16px',
+        backgroundColor: 'transparent',
+        backgroundImage: `url("${projectGradientYellow}")`,
+        backgroundSize: '100% 100%',  // Ensure it scales properly within the parent div
+        backgroundClip: 'padding-box',
+        WebkitBackgroundClip: 'padding-box',
+        border: '1px solid black'
     };
 
     const headerStyle: React.CSSProperties = {
-        fontFamily: 'DM Sans, serif',
-        fontSize: '9vw',
-        fontWeight: 'bold',
-        letterSpacing: '3px',
+        fontFamily: 'Poppins, sans-serif',
+        fontSize: '8vw',
+        fontWeight: '900',
+        letterSpacing: '1px',
         textAlign: 'center',
         position: 'relative',
         padding: '0',
-        backgroundImage: `url("${primaryGradientMedium}")`,
-        backgroundSize: 'cover',
-        backgroundClip: 'text',
-        WebkitBackgroundClip: 'text',
-        color: 'transparent',
-        //textShadow: '3px 1px black, 4px 2px black, 5px 3px black, -1px -1px 0 black, 1px -1px 0 black, -1px  1px 0 black, 1px  1px 0 black', // drop shadow
+        color: 'white',
+        textShadow: '3px 1px black, 4px 2px black, 5px 3px black, -1px -1px 0 black, 1px -1px 0 black, -1px  1px 0 black, 1px  1px 0 black', // drop shadow
     };
     
 

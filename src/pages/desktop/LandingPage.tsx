@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import LandingHeader from '../../components/desktop/LandingHeader';
-import LandingContact from '../../components/desktop/LandingContact';
+import ContactBar from '../../components/common/ContactBar';
 
 import { text } from 'stream/consumers';
 import { flattenDiagnosticMessageText } from 'typescript';
@@ -111,7 +111,7 @@ const LandingPage: React.FC = () => {
 
                     <hr style={{ width: '50vw', color: 'black', marginTop: '25px' }}/>
 
-                    <LandingContact />
+                    <ContactBar iconSize={'4x'}/>
                 </motion.div>
             </AnimatePresence>
         </div>
