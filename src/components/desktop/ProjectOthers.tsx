@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ProjectListing from './ProjectCard';
-import { projectsData } from '../data/projects';
-import { Project, Tag } from '../types';
+import { projectsData } from '../../data/projects';
+import { Project, Tag } from '../../types';
 
 const ProjectOthers: React.FC = () => {
     const [projects, setProjects] = useState<Project[]>([]);
