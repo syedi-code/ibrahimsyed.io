@@ -19,7 +19,6 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ changePage, currentPage }) => {
         backgroundColor: 'transparent',
         paddingTop: `${MENU_MARGIN}`,
         paddingBottom: `${MENU_MARGIN}`,
-        borderTop: '1px solid black',
         borderBottom: '1px solid black',
     };
 
