@@ -4,7 +4,7 @@ import { motion, useAnimation } from 'framer-motion';
 import DivSVG from '../common/DivSVG';
 import LandingSubtitle from '../common/LandingSubtitle';
 
-import { waveBackground50PercentRed } from '../../data/animations';
+import { waveBackground50PercentRed, waveBackground75PercentRedIncreasedAmplitude } from '../../data/animations';
 
 const LandingHeader: React.FC = () => {
     const [rotateX, setRotateX] = useState<number>(0);
@@ -16,9 +16,8 @@ const LandingHeader: React.FC = () => {
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        perspective: '1000px', // Increase perspective for a more dramatic effect
         padding: '50px',
-        border: '1px solid black'
+        border: '1px solid black',
     };
 
     const textContainerStyle: React.CSSProperties = {

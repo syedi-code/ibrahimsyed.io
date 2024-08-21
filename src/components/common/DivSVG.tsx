@@ -12,7 +12,7 @@ const DivSVG: React.FC<DivSVGProps> = ({ children, background, style }) => {
             style={{
                 ...style,
                 backgroundImage: `url("${background}")`, 
-                backgroundSize: 'cover',
+                backgroundSize: '100% 100%',
                 backgroundClip: 'padding-box',
                 WebkitBackgroundClip: 'padding-box',
                 color: 'transparent'
