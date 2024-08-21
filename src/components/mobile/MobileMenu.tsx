@@ -49,6 +49,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ changePage, currentPage }) => {
             fontFamily: 'DM Sans, sans-serif',
             margin: '0 1vw',
             color: 'white',
+            borderRadius: '20px',
             backgroundColor: 'black',
             backgroundImage: `url("${SVG_STARS}")`,
             backgroundSize: 'cover',

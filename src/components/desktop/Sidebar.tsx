@@ -1,50 +1,20 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import Div3D from './Div3D';
-import SidebarSketch from './SidebarSketch';
-import { link } from 'fs';
+
+import Div3D from '../common/Div3D';
+import DivSVG from '../common/DivSVG';
+
+import { primaryGradientMedium } from '../../data/animations';
 
 interface SidebarProps {
     changePage: (page: string) => void;
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ changePage }) => {
-    const sidebarVariants = {
-        hidden: {
-            x: -200
-        },
-        visible: {
-            x: 0,
-            transition: {
-                duration: 0.5,
-                ease: 'easeInOut'
-            }
-        }
-    };
-
-    const linkVariants = {
-        initial: {
-            scale: 1
-        },
-        hover: {
-            scale: 1.2,
-            transition: {
-                duration: 0.2
-            }
-        }
-    };
-
     const sidebarStyle: React.CSSProperties = {
-        position: 'fixed',
-        left: 0,
-        top: 0,
-        height: '100%',
-        width: '10vw',
-        backgroundColor: 'transparent',
-        paddingTop: 20,
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
+        width: '20%',
+        height: '100vh',
+        backgroundColor: '#f4f4f4', // You can change this to any color you prefer
+        borderRight: '1px solid black',
     };
 
     const linkStyle: React.CSSProperties = {
@@ -57,18 +27,16 @@ const Sidebar: React.FC<SidebarProps> = ({ changePage }) => {
     };
 
     const containerStyle: React.CSSProperties = {
-        textAlign: 'left',
-        paddingLeft: '2vw'
-    }
-
-    const spanStyle: React.CSSProperties = {
-      backgroundColor: 'white',
-      padding: '5px 10px',
-      border: '1px solid black'
-    }
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center', // Centers the children vertically
+        gap: '20px', // Adjust the gap between the buttons as needed
+        height: '100%', // Ensures the container takes up the full height of the sidebar
+    };
 
     return (
-        <motion.div style={sidebarStyle} initial="hidden" animate="visible" variants={sidebarVariants}>
+        <DivSVG style={sidebarStyle} background={primaryGradientMedium}>
             <div style={containerStyle}>
                 <Div3D
                     borderRadius='20px'
@@ -88,8 +56,8 @@ const Sidebar: React.FC<SidebarProps> = ({ changePage }) => {
                     <div style={linkStyle}>PROJECTS</div>
                 </Div3D>
             </div>
-        </motion.div>
+        </DivSVG>
     );
-}
+};
 
 export default Sidebar;

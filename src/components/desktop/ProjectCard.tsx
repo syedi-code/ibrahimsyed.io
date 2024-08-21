@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Project, Tag } from '../types';
-import { motion } from 'framer-motion';
-import { tagColorMap, extractTags } from '../data/projects';
+import { Project, Tag } from '../../types';
+import { AnimatePresence, motion } from 'framer-motion';
+import { tagColorMap, extractTags } from '../../data/projects';
 
-import ProjectTag from './ProjectTag';
+import ProjectTag from '../common/ProjectTag';
 import ProjectDescription from './ProjectDescription';
+import Div3D from '../common/Div3D';
 
 interface ProjectCardProps {
     project: Project;
@@ -20,8 +21,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     const containerStyle: React.CSSProperties = {
         margin: '10px',
         marginBottom: '20px',
-        width: '30vw',
-        cursor: 'pointer',        
+        width: '700px',
+        cursor: 'default',        
         userSelect: 'none',
         WebkitUserSelect: 'none',  // For Safari
         MozUserSelect: 'none',     // For Firefox
@@ -42,6 +43,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     };
 
     const nameStyle: React.CSSProperties = {
+        backgroundColor: 'black',
+        padding: '1vh',
+        color: 'white',
         fontFamily: 'Aleo, serif',
         fontWeight: 'bold',
         fontSize: '24px',
@@ -54,18 +58,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         fontSize: '20px',
         fontWeight: 'bold',
         color: "#a83e32",
-        marginTop: '0px',
+        marginTop: '5px',
         marginBottom: '10px'
-    };
-
-    const overlayStyle: React.CSSProperties = {
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        backgroundColor: randomColor,
-        zIndex: -1,
     };
 
     const infoContainerStyle: React.CSSProperties = {
@@ -90,20 +84,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         width: 'auto'
     };
 
-    const overlayVariants = {
-        initial: { scaleX: 0, originX: 0 },
-        hover: { scaleX: 1, originX: 0, transition: { duration: 0.5 } },
-    };
-
-    const contentVariants = {
-        initial: {
-
-        },
-        hover: {
-            transform: 'translate(-10px, -10px)',
-            boxShadow: '10px 10px 0px rgba(199, 199, 199, 1)',
-        }
-    };
+    const descriptionStyle: React.CSSProperties = {
+        padding: '10px', // Optional: Add padding inside the wrapper
+        borderRadius: '8px', // Optional: Add rounded corners
+        color: 'black',
+        fontWeight: '500',
+        letterSpacing: '0',
+        textDecorationColor: 'white',
+    }
 
     const getRandomColor = () => {
         const randomIndex = Math.floor(Math.random() * fillColors.length);
@@ -111,57 +99,41 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         return fillColors[randomIndex];
     }
 
-    const handleHoverStart = () => {
-        const newColor = getRandomColor();
-        setRandomColor(newColor);
-        setIsHovered(true);
-    }
-
-    const handleHoverEnd = () => {
-        setIsHovered(false);
-    }
-
-    const handleClick = () => {
-        setShowDescription(!showDescription);
-    }
-
     return (
         <motion.div 
             style={containerStyle}
         >
-            <motion.div
-                style={contentStyle}
-                variants={contentVariants}
-                initial="initial"
-                whileHover="hover"
-                onHoverStart={handleHoverStart}
-                onHoverEnd={handleHoverEnd}
-                onClick={handleClick}
-            >
-                <motion.div
-                    style={overlayStyle}
-                    variants={overlayVariants}
-                />
+            <a href={project.url !== 'coming soon' ? project.url : undefined} target="_blank" rel="noopener noreferrer">
+                <Div3D
+                    style={contentStyle}
+                    inverted={false}
+                >
+                    <div>
+                        <h2 style={nameStyle}>{project.name}</h2>
+                        <div style={infoContainerStyle}>
+                            <div>
+                                <p style={yearStyle}>{project.year}</p>
 
-                <div>
-                    <h2 style={nameStyle}>{project.name}</h2>
-                    <div style={infoContainerStyle}>
-                        <div>
-                            <p style={yearStyle}>{project.year}</p>
+                                {tags.map(tag => (
+                                    <ProjectTag tag={tag} onClick={() => {}} doesHoverAnimation={false}  />
+                                ))}
+                            </div>
 
-                            {tags.map(tag => (
-                                <ProjectTag tag={tag} onClick={() => {}} doesHoverAnimation={false}  />
-                            ))}
-                        </div>
-
-                        <div style={infoChildStyle}>
-                            {project.img != "" && (<img style={thumbnailStyle} src={`/img/projects/${project.img}`} />)}
+                            <div style={infoChildStyle}>
+                                {project.img != "" && (<img style={thumbnailStyle} src={`/img/projects/${project.img}`} />)}
+                            </div>
                         </div>
                     </div>
-                </div>
-                
-                <ProjectDescription isHovered={isHovered} project={project} showDescription={showDescription} onClick={handleClick} />
-            </motion.div>
+                    
+                    <AnimatePresence>
+                        <motion.div style={descriptionStyle}>
+                            {React.createElement(project.description)}
+                        </motion.div>
+                    </AnimatePresence>
+
+                    {React.createElement(project.links)}
+                </Div3D>
+            </a>
         </motion.div>
     );
 };

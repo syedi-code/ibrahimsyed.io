@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Project, Tag } from '../types';
-import { projectsData } from '../data/projects';
+import { Project, Tag } from '../../types';
+import { projectsData } from '../../data/projects';
 
-import MobileProjectCard from '../components/MobileProjectCard';
+import MobileProjectCard from '../../components/mobile/MobileProjectCard';
 
 const MobileProjects: React.FC = () => {
     const [projects, setProjects] = useState<Project[]>([]);

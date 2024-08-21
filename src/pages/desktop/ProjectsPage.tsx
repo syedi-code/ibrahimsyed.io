@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Project, Tag } from '../types';
-import { projectsData } from '../data/projects';
+import { Project, Tag } from '../../types';
+import { projectsData } from '../../data/projects';
 
-import ProjectShowcase from '../components/ProjectShowcase';
-import ProjectOthers from '../components/ProjectOthers';
-import ProjectDisplay from '../components/ProjectDisplay';
-import ProjectTag from '../components/ProjectTag';
+import DivSVG from '../../components/common/DivSVG';
+
+import ProjectShowcase from '../../components/desktop/ProjectShowcase';
+import ProjectOthers from '../../components/desktop/ProjectOthers';
+import ProjectDisplay from '../../components/desktop/ProjectDisplay';
+import ProjectTag from '../../components/common/ProjectTag';
+
+import { blueGradientMedium, blueGradientDarker } from '../../data/animations';
 
 const ProjectsPage: React.FC = () => {
     const [projects, setProjects] = useState<Project[]>([]);
@@ -44,7 +48,7 @@ const ProjectsPage: React.FC = () => {
             setFilteredProjects(projects);
         } else {
             const filtered = projects.filter(project =>
-                activeTags.some(tag => project.tags.includes(tag.name))
+                activeTags.every(tag => project.tags.includes(tag.name))
             );
             setFilteredProjects(filtered);
         }
@@ -114,7 +118,19 @@ const ProjectsPage: React.FC = () => {
         fontSize: '20px',
         fontWeight: 'bold',
         color: "#a83e32",
-        justifyContent: 'left'
+        justifyContent: 'left',
+        backgroundColor: 'white',
+        border: '1px solid black',
+        borderRadius: '8px',
+        boxShadow: '3px 3px 0px rgba(0, 0, 0, 1)',
+        padding: '5px 10px',
+        margin: '15px 10px'
+    }
+
+    const projectsStyle: React.CSSProperties = {
+        border: '2px solid black',
+        borderRadius: '20px',
+        padding: '20px',
     }
 
     const inactiveTags = tags.filter(tag => !activeTags.includes(tag));
@@ -147,33 +163,35 @@ const ProjectsPage: React.FC = () => {
 
             <div style={subtitleStyle}>
                 {getSubtitleText()}
-                <hr style={{marginBottom: '15px'}} />
             </div>
 
             <AnimatePresence mode="wait">
-                {activeTags.length === 0 ? (
-                    <motion.div
-                        style={bodyStyle}
-                        key="showcase"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                    >
-                        <ProjectShowcase />
+                {filteredProjects.length != 0 && 
+                    <DivSVG style={projectsStyle} background={blueGradientDarker}>
+                        {activeTags.length === 0 ? (
+                            <motion.div
+                                style={bodyStyle}
+                                key="showcase"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 0.3 }}
+                            >
+                                <ProjectShowcase />
 
-                        <div style={subtitleStyle}>
-                            THE REST
-                            <hr style={{marginBottom: '15px'}} />
-                        </div>
+                                <div style={subtitleStyle}>
+                                    THE REST
+                                </div>
 
-                        <ProjectOthers />
-                    </motion.div>
-                ) : (
-                    <div>
-                        <ProjectDisplay projects={filteredProjects} filterApplied={filterApplied} />
-                    </div>
-                )}
+                                <ProjectOthers />
+                            </motion.div>
+                        ) : (
+                            <div style={bodyStyle}>
+                                <ProjectDisplay projects={filteredProjects} filterApplied={filterApplied} />
+                            </div>
+                        )}
+                    </DivSVG>
+                }
             </AnimatePresence>
         </div>
     );

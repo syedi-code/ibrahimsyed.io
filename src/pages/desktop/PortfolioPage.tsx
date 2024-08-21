@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
-import Cursor from '../components/Cursor';
+import Cursor from '../../components/common/Cursor';
 
 // Utility function to interpolate between two colors
 const interpolateColor = (color1: string, color2: string, factor: number): string => {

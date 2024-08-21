@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-import { Project, Tag } from '../types';
-import { extractTags } from '../data/projects';
-import { headerGradient, projectGradientRed, projectGradientBlue, projectGradientYellow } from '../data/animations';
+import { Project, Tag } from '../../types';
+import { extractTags } from '../../data/projects';
+import { headerGradient, projectGradientRed, projectGradientBlue, projectGradientYellow } from '../../data/animations';
 
-import Div3D from './Div3D';
-import ProjectTag from './ProjectTag';
+import Div3D from '../common/Div3D';
+import ProjectTag from '../common/ProjectTag';
 
 interface MobileProjectCardProps {
     project: Project;
@@ -15,10 +15,12 @@ interface MobileProjectCardProps {
 const MobileProjectCard: React.FC<MobileProjectCardProps> = ({ project }) => {
     const tags: Tag[] = extractTags(project.name);
 
+    // --------- VARIABLES ---------
     const ITEM_MARGIN = '10px';
     const TEXT_COLOR = 'black';
     const POST_COLORS = [projectGradientRed, projectGradientBlue, projectGradientYellow];
 
+    // --------- GENERAL STYLING ---------
     const nameStyle: React.CSSProperties = {
         fontFamily: 'Aleo, serif',
         fontWeight: 'bold',
@@ -54,15 +56,6 @@ const MobileProjectCard: React.FC<MobileProjectCardProps> = ({ project }) => {
         margin: `${ITEM_MARGIN}`,
     };
 
-    const tagStyle: React.CSSProperties = {
-        cursor: 'pointer',
-        marginRight: '10px',
-        marginBottom: '10px',
-        fontFamily: 'DM Sans, sans-serif',
-        fontSize: '3vw',
-        fontWeight: 'bold'
-    };
-
     const yearStyle: React.CSSProperties = {
         fontFamily: 'DM Sans, sans-serif',
         fontSize: '14px',
@@ -77,7 +70,8 @@ const MobileProjectCard: React.FC<MobileProjectCardProps> = ({ project }) => {
         padding: `${ITEM_MARGIN} 0 ${ITEM_MARGIN} 0`,
         backgroundImage: `url("${POST_COLORS[project.id % POST_COLORS.length]}")`,
         backgroundSize: 'cover',
-        backgroundClip: 'padding-box',  // Clips the background to the text
+        backgroundClip: 'border-box',  // Clips the background to the text
+        borderRadius: '8px'
     }
 
     return (

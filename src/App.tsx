@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
-import Sidebar from './components/Sidebar';
-import SidebarSketch from './components/SidebarSketch';
+import Sidebar from './components/desktop/Sidebar';
 
-import MobileHeader from './components/MobileHeader';
-import MobileMenu from './components/MobileMenu';
-import MobileLanding from './pages/MobileLanding';
-import MobileProjects from './pages/MobileProjects';
+import MobileHeader from './components/mobile/MobileHeader';
+import MobileMenu from './components/mobile/MobileMenu';
+import MobileLanding from './pages/mobile/MobileLanding';
+import MobileProjects from './pages/mobile/MobileProjects';
 
-import LandingPage from './pages/LandingPage';
-import ProjectsPage from './pages/ProjectsPage';
-import PortfolioPage from './pages/PortfolioPage';
+import LandingPage from './pages/desktop/LandingPage';
+import ProjectsPage from './pages/desktop/ProjectsPage';
+import PortfolioPage from './pages/desktop/PortfolioPage';
 import './App.css';
 
 function App() {
   const [isMobile, setIsMobile] = useState(false);
   const [currentPage, setCurrentPage] = useState('landing');
 
+  // --------- LOGIC AND HELPER FUNCTIONS ---------
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= window.innerHeight);
@@ -30,11 +30,24 @@ function App() {
     setCurrentPage(page);
   }
 
+  // --------- GENERAL STYLING ---------
   const highlightStyle: React.CSSProperties = {
     backgroundColor: '#DD5746',
     color: '#ffffff',
     padding: '0.5em',
     maxWidth: '75vw'
+  };
+
+  const contentStyle: React.CSSProperties = {
+      display: 'flex',
+      flexDirection: 'row',
+      height: '100vh', // Ensures that the layout takes up the full height of the viewport
+  };
+
+  const mainContentStyle: React.CSSProperties = {
+      flex: '1', // The content div takes up the remaining width
+      overflowY: 'auto', // Allows scrolling if content overflows vertically
+      background: 'white',
   };
 
   return (
@@ -54,13 +67,14 @@ function App() {
         </div>
       ) : (
         <div className="App">
-          <SidebarSketch />
-          <Sidebar changePage={changePage} />
+          <div style={contentStyle}>
+            <Sidebar changePage={changePage} />
 
-          <div className="content">
-            {currentPage === 'landing' && <LandingPage />}
-            {currentPage === 'projects' && <ProjectsPage />}
-            {currentPage === 'portfolio' && <PortfolioPage />}
+            <div className="content" style={mainContentStyle}>
+              {currentPage === 'landing' && <LandingPage />}
+              {currentPage === 'projects' && <ProjectsPage />}
+              {currentPage === 'portfolio' && <PortfolioPage />}
+            </div>
           </div>
         </div>
       )}

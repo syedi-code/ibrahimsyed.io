@@ -1,7 +1,6 @@
 import React from 'react';
 
 export const descriptionStyle: React.CSSProperties = {
-    cursor: 'default',
     fontFamily: 'DM Sans, serif',
     padding: '5px',
     margin: '0 0 0 0',

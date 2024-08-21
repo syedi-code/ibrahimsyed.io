@@ -26,7 +26,7 @@ const Div3D: React.FC<Div3DProps> = (
         cursor,
         borderRadius = '20px',
         padding = '15px',
-        dropShadowColor = 'rgba(199, 199, 199, 1)',
+        dropShadowColor = 'rgba(0, 0, 0, 1)',
         margin = '0 0 1em 0', offset = '5px',
         maxWidth = '100%',
         onClick,
@@ -35,6 +35,7 @@ const Div3D: React.FC<Div3DProps> = (
         inverted
     }
 ) => {
+    // --------- GENERAL STYLING ---------
     const contentStyle: React.CSSProperties = {
         display: 'inline-block',
         backgroundColor: backgroundColor,

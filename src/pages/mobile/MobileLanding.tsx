@@ -1,10 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-import LandingSubtitle from '../components/LandingSubtitle';
-import Div3D from '../components/Div3D';
+import LandingSubtitle from '../../components/common/LandingSubtitle';
+import Div3D from '../../components/common/Div3D';
 
-import { primaryGradientLight, primaryGradientMedium } from '../data/animations';
+import { primaryGradientLight, primaryGradientMedium } from '../../data/animations';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faGithubSquare, faLinkedin } from '@fortawesome/free-brands-svg-icons';
@@ -72,12 +72,12 @@ const MobileLanding: React.FC = () => {
 
     // --------- TAG STYLING ---------
     const dataScienceStyle: React.CSSProperties = {
-        backgroundColor: '#F0A8D0', // Red background
+        backgroundColor: '#3a0ca3', // Red background
         padding: `0 ${TAG_SPACING}`,
     };
 
     const webDevelopmentStyle: React.CSSProperties = {
-        backgroundColor: '#4793AF', // Blue background
+        backgroundColor: '#274c77', // Blue background
         padding: `0 ${TAG_SPACING}`,
     };
 

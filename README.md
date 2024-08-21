@@ -6,10 +6,9 @@ My personal website and portfolio, hosted at [ibrahimsyed.io](https://ibrahimsye
 
 ## Technologies Used
 
-- **React**: A JavaScript library for building user interfaces.
-- **TypeScript**: A typed superset of JavaScript that compiles to plain JavaScript.
-- **framer-motion**: A library for animations and gestures in React.
-- **CSS Modules**: Scoped CSS for styling components.
+- **[React](https://reactjs.org/)**: A JavaScript library for building user interfaces.
+- **[TypeScript](https://www.typescriptlang.org/)**: A typed superset of JavaScript that compiles to plain JavaScript.
+- **[framer-motion](https://www.framer.com/motion/)**: A library for animations and gestures in React.
 
 ## Getting Started
 

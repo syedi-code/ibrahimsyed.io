@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Project } from '../types';
+import { Project } from '../../types';
 
 interface ProjectDescriptionProps {
     project: Project;
