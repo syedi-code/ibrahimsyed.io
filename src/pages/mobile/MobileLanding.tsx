@@ -128,7 +128,7 @@ const MobileLanding: React.FC = () => {
                 animate="show"
             >
                 <motion.div style={bodyStyle} variants={itemVariants}>
-                    Hi, I'm Ibrahim, a double major in Computer Science and Music Technology at Oregon State University.
+                    Hi, I'm Ibrahim, an Oregon State University graduate with a dual Bachelors of Science in Computer Science and Music Technology.
                 </motion.div>
 
                 <motion.div style={bodyStyle} variants={itemVariants}>

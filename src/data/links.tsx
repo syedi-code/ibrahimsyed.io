@@ -63,7 +63,7 @@ export const DaxbotLinks: React.FC = () => {
     return (
         <div style={linksContainerStyle}>
             <span>
-                <a href="https://ieeexplore.ieee.org/document/9837424" target="_blank" rel="noopener noreferrer">blog</a>
+                <a href="https://syedi-code.github.io/html/daxbot.html" target="_blank" rel="noopener noreferrer">blog</a>
             </span>
         </div>
     );
