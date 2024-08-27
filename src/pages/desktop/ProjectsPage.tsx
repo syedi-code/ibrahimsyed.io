@@ -130,7 +130,10 @@ const ProjectsPage: React.FC = () => {
     const projectsStyle: React.CSSProperties = {
         border: '2px solid black',
         borderRadius: '20px',
-        padding: '20px',
+        padding: '1vw',
+        maxWidth: '66vw',
+        boxShadow: '3px 3px 0px rgba(0, 0, 0, 1)',
+        marginBottom: '10vh',
     }
 
     const inactiveTags = tags.filter(tag => !activeTags.includes(tag));

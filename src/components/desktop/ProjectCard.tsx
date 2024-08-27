@@ -22,6 +22,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         margin: '10px',
         marginBottom: '20px',
         width: '700px',
+        maxWidth: '50vw',
         cursor: 'default',        
         userSelect: 'none',
         WebkitUserSelect: 'none',  // For Safari
@@ -88,7 +89,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         padding: '10px', // Optional: Add padding inside the wrapper
         borderRadius: '8px', // Optional: Add rounded corners
         color: 'black',
-        fontWeight: '500',
+        fontWeight: '400',
         letterSpacing: '0',
         textDecorationColor: 'white',
     }
@@ -127,7 +128,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                     
                     <AnimatePresence>
                         <motion.div style={descriptionStyle}>
-                            {React.createElement(project.description)}
+                            {project.preview}
                         </motion.div>
                     </AnimatePresence>
 
