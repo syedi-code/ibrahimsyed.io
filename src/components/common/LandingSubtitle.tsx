@@ -13,7 +13,7 @@ interface LandingSubtitleProps {
 const LandingSubtitle: React.FC<LandingSubtitleProps> = ({ color = 'black', fontSize = '32px', backgroundColor = 'transparent', fontWeight = '400', cursor = true }) => {
     const textIndex = useMotionValue(0);
     const texts = [
-        "Programmer, data analyst, sound designer",
+        "Programmer, data scientist, sound designer",
         "Oregon State University '24",
     ];
   
