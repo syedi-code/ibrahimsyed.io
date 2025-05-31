@@ -29,8 +29,6 @@ import type { AlbumLink } from '../types';
 import SpotifyLogoUrl from '@/assets/svg/Spotify.svg?url';
 import AppleMusicLogoUrl from '@/assets/svg/AppleMusic.svg?url';
 import YouTubeMusicLogoUrl from '@/assets/svg/YouTubeMusic.svg?url';
-import glassBackgroundUrl from '@/assets/img/bg/glass-1.png';
-import glass2BackgroundUrl from '@/assets/img/bg/glass-2.png';
 import glass3BackgroundUrl from '@/assets/img/bg/glass-3.png';
 
 
