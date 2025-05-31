@@ -1,5 +1,5 @@
 <template>
-  <div class="album-layout-container flex flex-col items-center gap-0 py-4">
+  <div class="album-layout-container flex flex-col items-center gap-0 py-3 h-screen">
     
     <img 
       :src="album.albumArtSrc" 
@@ -40,7 +40,7 @@
       <!-- Spotify Embed Start -->
       <div 
         v-if="spotifyEmbedUrl" 
-        class="relative w-full overflow-hidden rounded-[8px] h-[70vh]"
+        class="relative w-full rounded-[8px] h-[50vh]"
       >
         <iframe
           :src="spotifyEmbedUrl"

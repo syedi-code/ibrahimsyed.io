@@ -64,10 +64,11 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-family: 'Inter';
+    scrollbar-width: none;
   }
 
   body {
-    @apply bg-[#010203];
+    @apply bg-[#010203] overflow-hidden;
   }
 
   @font-face {

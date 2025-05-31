@@ -1,8 +1,8 @@
 <template>
-  <div class="album-list-container h-screen w-full overflow-y-auto overflow-x-hidden scroll-smooth">
+  <div class="album-list-container h-screen w-full overflow-y-auto overflow-x-hidden scroll-smooth snap-y snap-mandatory">
     <div 
       class="albums-wrapper flex flex-col items-center min-h-screen 
-             py-4 gap-6 
+             gap-6 
              md:py-8 md:gap-12 
             "
     >
@@ -10,7 +10,7 @@
         v-for="albumData in albums"
         :key="albumData.id"
         :album="albumData" 
-        class="album-item shrink-0"
+        class="album-item shrink-0 snap-start snap-stop-always"
       />
     </div>
   </div>
