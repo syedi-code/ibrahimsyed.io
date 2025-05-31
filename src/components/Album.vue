@@ -1,6 +1,5 @@
 <template>
-  <div class="album-layout-container flex flex-col items-center gap-0 py-3 h-screen">
-    
+  <div class="album-layout-container flex flex-col items-center gap-0 py-4 h-screen">
     <img 
       :src="album.albumArtSrc" 
       :alt="`${album.title} Album Art`"
