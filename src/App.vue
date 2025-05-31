@@ -1,16 +1,15 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import type { Album } from './types' // Import the Album type
-import AlbumList from './components/AlbumList.vue' // Renamed from CardCarousel
+import type { Album } from './types'
+import AlbumList from './components/AlbumList.vue'
 
-// Define the albums array using the Album interface
 const albums = ref<Album[]>([
   {
     id: '1',
     title: 'SUPERCOMPLEX',
-    artist: 'Artist A', // Placeholder artist
+    artist: 'Artist A',
     year: 2025,
-    albumArtSrc: '/src/assets/img/album/SUPERCOMPLEX.png', // Path from public folder
+    albumArtSrc: '/src/assets/img/album/SUPERCOMPLEX.png',
     backgroundSrc: '/src/assets/img/supercomplex1-3-4.png',
     links: [
       { service: 'spotify', url: 'https://open.spotify.com/album/youralbumid1' },
@@ -20,10 +19,10 @@ const albums = ref<Album[]>([
   },
   {
     id: '2',
-    title: 'I Won.', // Placeholder title
-    artist: 'Artist B', // Placeholder artist
-    year: 2023, // Placeholder year
-    albumArtSrc: '/src/assets/img/album/iwon.jpg', // Path from public folder
+    title: 'I Won.',
+    artist: 'Artist B',
+    year: 2023,
+    albumArtSrc: '/src/assets/img/album/iwon.jpg',
     backgroundSrc: '/src/assets/img/bg/glass-2.png',
     links: [
       { service: 'spotify', url: 'https://open.spotify.com/album/0Az4XvOfK8phD4U8O8Nxlj' },
@@ -41,5 +40,4 @@ const albums = ref<Album[]>([
 </template>
 
 <style scoped>
-/* App-level styles */
 </style>

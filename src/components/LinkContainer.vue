@@ -11,13 +11,13 @@
       target="_blank" 
       rel="noopener noreferrer"
       :aria-label="`Listen on ${getServiceName(link.service)}`"
-      class="bg-white p-2 rounded-4"
+      class="bg-white p-2 rounded-4 scale-on-press"
     >
       <img
         v-if="getIcon(link.service)" 
         :src="getIcon(link.service)" 
         :alt="`${getServiceName(link.service)} logo`"
-        class="block w-[2.5rem] aspect-square" 
+        class="block w-[2.5rem] aspect-square scale-on-press" 
       />
     </a>
   </div>

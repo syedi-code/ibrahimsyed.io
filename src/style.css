@@ -223,7 +223,12 @@
 }
 
 @layer utilities {
-
+  .scale-on-press {
+    @apply transition-transform duration-100; /* Optional: for smooth transition */
+  }
+  .scale-on-press:active {
+    @apply scale-90;
+  }
 }
 
 /* End of Tailwind CSS file */

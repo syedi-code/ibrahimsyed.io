@@ -27,23 +27,37 @@
     <LinkContainer :links="album.links" />
 
     <div 
-      class="card relative lg:w-[50vw] h-[75vh] w-[80vw] mx-auto overflow-hidden rounded-7"
+      class="relative lg:w-[50vw] w-[70vw] mx-auto overflow-hidden rounded-7 p-4"
       :style="{ 
-        aspectRatio: '3/4',
         boxShadow: 'var(--shadow-2)'
       }"
     >
       <img 
         :src="album.backgroundSrc"
-        class="w-full h-full object-cover"
+        class="absolute inset-0 w-full h-full object-cover -z-10"
         draggable="false"
       />
+      <!-- Spotify Embed Start -->
+      <div 
+        v-if="spotifyEmbedUrl" 
+        class="relative w-full overflow-hidden rounded-[8px] h-[70vh]"
+      >
+        <iframe
+          :src="spotifyEmbedUrl"
+          class="w-full h-full border-0"
+          allowfullscreen
+          allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture;"
+          loading="lazy"
+        ></iframe>
+      </div>
+      <!-- Spotify Embed End -->
     </div>
 
   </div>
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'; // Import computed
 import type { Album } from '../types' 
 import LinkContainer from './LinkContainer.vue'; 
 
@@ -51,7 +65,25 @@ interface Props {
   album: Album;
 }
 
-defineProps<Props>();
+const props = defineProps<Props>();
+
+const spotifyEmbedUrl = computed(() => {
+  if (!props.album || !props.album.links) {
+    return null;
+  }
+  const spotifyLink = props.album.links.find(link => link.service === 'spotify');
+  if (spotifyLink && spotifyLink.url) {
+    // Example URL: https://open.spotify.com/album/0Az4XvOfK8phD4U8O8Nxlj
+    // Extract album ID from URL like: https://open.spotify.com/album/ALBUM_ID_HERE or https://open.spotify.com/album/ALBUM_ID_HERE?si=...
+    const match = spotifyLink.url.match(/open\.spotify\.com\/album\/([a-zA-Z0-9]+)/);
+    if (match && match[1]) {
+      const albumId = match[1];
+      // Using the compact embed version by default, adjust height in style as needed
+      return `https://open.spotify.com/embed/album/${albumId}?utm_source=oembed`;
+    }
+  }
+  return null;
+});
 </script>
 
 <style scoped>
