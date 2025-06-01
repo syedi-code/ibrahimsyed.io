@@ -1,7 +1,7 @@
 <template>
   <div 
     v-if="props.links && props.links.length > 0" 
-    class="flex justify-center items-center gap-4 my-4 px-4 py-3 rounded-4 bg-cover bg-center bg-no-repeat" 
+    class="flex justify-center items-center gap-4 my-3 lg:my-4 px-3 lg:px-4 py-3 rounded-4 bg-cover bg-center bg-no-repeat scale-75 lg:scale-100" 
     :style="{ backgroundImage: `url(${glass3BackgroundUrl})` }"
   >
     <a 
