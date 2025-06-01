@@ -1,4 +1,5 @@
-<template>  <div class="album-layout-container flex flex-col items-center gap-0 py-4 h-screen">
+<template>  
+  <div class="album-layout-container flex flex-col items-center gap-0 py-4">
     <img 
       v-motion
       :initial="{ opacity: 0, y: 50, scale: 0.8 }"
@@ -68,7 +69,7 @@
           delay: 600
         } 
       }"
-      class="relative lg:w-[50vw] w-[70vw] mx-auto overflow-hidden rounded-7 px-4 py-5"
+      class="relative lg:w-[50vw] w-[70vw] mx-auto overflow-hidden rounded-7 px-4 lg:px-6 py-5 flex-shrink-0"
       :style="{ 
         boxShadow: 'var(--shadow-2)'
       }"
@@ -103,11 +104,11 @@
             delay: 1000
           } 
         }"
-        class="relative w-full rounded-[8px] h-[50vh]"
+        class="relative w-full rounded-[8px] h-[70vh] lg:h-[50vh]"
       >
         <iframe
           :src="spotifyEmbedUrl"
-          class="w-full h-full border-0"
+          class="w-full h-full border-0 rounded-[8px]"
           allowfullscreen
           allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture;"
           loading="lazy"
@@ -148,6 +149,14 @@ const spotifyEmbedUrl = computed(() => {
 </script>
 
 <style scoped>
+/* Add mobile-specific height constraints */
+@media (max-width: 640px) {
+  .album-layout-container {
+    min-height: 100vh;
+    height: auto;
+  }
+}
+
 .card {
   touch-action: none;
   user-select: none;
