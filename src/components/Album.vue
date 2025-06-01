@@ -68,7 +68,7 @@
           delay: 600
         } 
       }"
-      class="relative lg:w-[50vw] w-[70vw] mx-auto overflow-hidden rounded-7 p-4"
+      class="relative lg:w-[50vw] w-[70vw] mx-auto overflow-hidden rounded-7 px-4 py-5"
       :style="{ 
         boxShadow: 'var(--shadow-2)'
       }"
