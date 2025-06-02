@@ -2,11 +2,11 @@ name: Mirror to public repo
 
 on:
   push:
-    branches: [ main ]   # trigger only when main gets new commits
-  workflow_dispatch:      # manual button in the Actions tab (handy for first run)
+    branches: [ main ]
+  workflow_dispatch:
 
 permissions:
-  contents: read          # default pull perms
+  contents: read
 jobs:
   mirror:
     runs-on: ubuntu-latest
@@ -14,12 +14,12 @@ jobs:
       - name: Checkout full history
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # need full history for --mirror pushes
+          fetch-depth: 0
 
       - name: Push to public mirror
         env:
-          MIRROR_URL: ${{ secrets.MIRROR_URL }}
+          MIRROR_URL:   ${{ secrets.MIRROR_URL }}
           MIRROR_TOKEN: ${{ secrets.MIRROR_TOKEN }}
         run: |
-          auth_url=${MIRROR_URL/https:\/\//https:\/\/x-access-token:${MIRROR_TOKEN}@}
+          auth_url="https://x-access-token:${MIRROR_TOKEN}@${MIRROR_URL#https://}"
           git push --follow-tags "$auth_url" main
