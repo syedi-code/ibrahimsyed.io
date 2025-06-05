@@ -4,8 +4,6 @@
 
 Exercise in mobile-first design with Tailwind v4.
 
----
-
 ## Features
 - Vertical snap-scroll for seamless navigation
 - Entry animations powered by `@vueuse/motion`
@@ -48,7 +46,11 @@ src/
 - Tailwind CSS
 - @vueuse/motion
 
-## DOOMBOT Footnote:
-```text
+## To-Do
+- Abstract Album type into Project type
+- Build out full historic timeline mirroring v1 of the site
+- Add About, DOOM Labs, Gallery page
+- Remove scrollbar
+
+## Note from DOOMBOT
 Man is a rope stretched between the animal and the Superman -- a rope over an abyss.
-```

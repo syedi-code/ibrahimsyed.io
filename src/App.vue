@@ -45,7 +45,7 @@ const albums = ref<Album[]>([
 <template>
   <div id="app" class="h-screen w-full overflow-y-auto scroll-smooth snap-y snap-mandatory">
     <Header class="snap-start" />
-    <AlbumList :albums="albums" class="snap-start" />
+    <AlbumList :albums="albums" />
   </div>
 </template>
 
