@@ -1,5 +1,5 @@
 <template>  
-  <div class="album-layout-container flex flex-col items-center gap-0 py-4">
+  <div class="album-layout-container flex flex-col items-center gap-0 pb-4">
     <img 
       v-motion
       :initial="{ opacity: 0, y: 50, scale: 0.8 }"
@@ -90,7 +90,7 @@
         class="absolute inset-0 w-full h-full object-cover -z-10"
         draggable="false"
       />
-      <!-- Spotify Embed Start -->
+  
       <div 
         v-if="spotifyEmbedUrl" 
         v-motion
@@ -114,14 +114,12 @@
           loading="lazy"
         ></iframe>
       </div>
-      <!-- Spotify Embed End -->
     </div>
-
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'; // Import computed
+import { computed } from 'vue';
 import type { Album } from '../types' 
 import LinkContainer from './LinkContainer.vue'; 
 

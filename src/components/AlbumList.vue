@@ -1,5 +1,5 @@
 <template>
-  <div class="album-list-container h-screen w-full overflow-y-auto overflow-x-hidden scroll-smooth snap-y snap-mandatory">
+  <div class="album-list-container w-full">
     <div 
       class="albums-wrapper flex flex-col items-center min-h-screen 
              gap-6 
