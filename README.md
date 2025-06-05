@@ -4,8 +4,6 @@
 
 Exercise in mobile-first design with Tailwind v4.
 
----
-
 ## Features
 - Vertical snap-scroll for seamless navigation
 - Entry animations powered by `@vueuse/motion`
@@ -48,7 +46,7 @@ src/
 - Tailwind CSS
 - @vueuse/motion
 
-## DOOMBOT Footnote:
+## Note from DOOMBOT
 ```text
 Man is a rope stretched between the animal and the Superman -- a rope over an abyss.
 ```
