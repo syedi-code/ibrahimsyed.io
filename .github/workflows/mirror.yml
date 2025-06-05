@@ -40,21 +40,25 @@ jobs:
         run: |
           git remote add mirror "https://${{ secrets.MIRROR_TOKEN }}@${{ secrets.MIRROR_URL }}"
 
-      - name: Create a one‐commit orphan snapshot for mirror
+      - name: Create a one-commit orphan snapshot for mirror
         run: |
-          # 1) start fresh with zero history
+          # 1) start an orphan branch (no history)
           git checkout --orphan mirror-temp
-          # 2) remove everything from index (working‐tree remains)
-          git reset --hard
-          # 3) add all files
+
+          # 2) clear out the index only (keep files in worktree)
+          git rm -rf --cached .
+
+          # 3) stage everything in the working tree
           git add -A
-          # 4) commit them under doombot identity
+
+          # 4) commit under doombot identity
           GIT_AUTHOR_NAME="doombot-v1" \
           GIT_AUTHOR_EMAIL="noreply@github.com" \
           GIT_COMMITTER_NAME="doombot-v1" \
           GIT_COMMITTER_EMAIL="noreply@github.com" \
             git commit -m "Public mirror snapshot"
-          # 5) rename to main so mirror repo’s main gets replaced
+
+          # 5) rename branch to main so it replaces mirror’s main
           git branch -M main
 
       - name: Push just the orphan‐snapshot to public mirror
