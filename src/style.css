@@ -27,6 +27,7 @@
   --spacing-6: 4rem;
   --spacing-7: 6rem;
 
+
   --breakpoint-md: 768px;
   --breakpoint-lg: 1024px;
 
@@ -62,7 +63,23 @@
   }
 
   body {
-    @apply bg-gradient-to-b from-[#010203] to-[#4A5568] overflow-hidden;
+    @apply m-0 overflow-hidden bg-none relative;
+  }
+
+  body::before {
+    content: '';
+    @apply fixed inset-0 z-[-1]
+      bg-gradient-to-br
+      from-[#1B1F3B] via-[#3D52A1] to-[#648DE5]
+      bg-[length:100%_120%]
+      will-change-transform
+      brightness-25;
+  }
+
+  /* keep your subtle overlay */
+  body::after {
+    content: '';
+    @apply fixed inset-0 bg-white/5 z-[-1];
   }
 
   @font-face {
@@ -208,6 +225,12 @@
     font-weight: 900;
     src: url('./assets/fonts/inter-v18-latin-900italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
   }
+}
+
+@keyframes drift {
+  0%   { transform: translate3d(0,    0, 0); }
+  50%  { transform: translate3d(0, -10%, 0); }
+  100% { transform: translate3d(0,    0, 0); }
 }
 
 /* Note: Most resets are handled by Tailwind Preflight */
