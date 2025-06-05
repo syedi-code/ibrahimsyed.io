@@ -36,9 +36,9 @@ jobs:
             export GIT_COMMITTER_EMAIL="noreply@github.com"
           ' -- --branches main
 
-      - name: Add public‐mirror remote
+      - name: Add public-mirror remote
         run: |
-          git remote add mirror "https://${{ secrets.MIRROR_TOKEN }}@${{ secrets.MIRROR_URL#https:// }}"
+          git remote add mirror "https://${{ secrets.MIRROR_TOKEN }}@${{ secrets.MIRROR_URL }}"
 
       - name: Create a one‐commit orphan snapshot for mirror
         run: |
