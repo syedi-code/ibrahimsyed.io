@@ -36,10 +36,27 @@ jobs:
             export GIT_COMMITTER_EMAIL="noreply@github.com"
           ' -- --branches main
 
-      - name: Push to public mirror
-        env:
-          MIRROR_URL: ${{ secrets.MIRROR_URL }}
-          MIRROR_TOKEN: ${{ secrets.MIRROR_TOKEN }}
+      - name: Add public‐mirror remote
         run: |
-          git remote add mirror "https://${MIRROR_TOKEN}@${MIRROR_URL#https://}"
+          git remote add mirror "https://${{ secrets.MIRROR_TOKEN }}@${{ secrets.MIRROR_URL#https:// }}"
+
+      - name: Create a one‐commit orphan snapshot for mirror
+        run: |
+          # 1) start fresh with zero history
+          git checkout --orphan mirror-temp
+          # 2) remove everything from index (working‐tree remains)
+          git reset --hard
+          # 3) add all files
+          git add -A
+          # 4) commit them under doombot identity
+          GIT_AUTHOR_NAME="doombot-v1" \
+          GIT_AUTHOR_EMAIL="noreply@github.com" \
+          GIT_COMMITTER_NAME="doombot-v1" \
+          GIT_COMMITTER_EMAIL="noreply@github.com" \
+            git commit -m "Public mirror snapshot"
+          # 5) rename to main so mirror repo’s main gets replaced
+          git branch -M main
+
+      - name: Push just the orphan‐snapshot to public mirror
+        run: |
           git push mirror main --force
