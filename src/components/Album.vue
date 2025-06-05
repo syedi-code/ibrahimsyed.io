@@ -1,5 +1,5 @@
 <template>  
-  <div class="album-layout-container flex flex-col items-center gap-0 pb-4">
+  <div class="album-layout-container flex flex-col items-center gap-0 pb-4 pt-4">
     <img 
       v-motion
       :initial="{ opacity: 0, y: 50, scale: 0.8 }"
@@ -16,12 +16,12 @@
       }"
       :src="album.albumArtSrc" 
       :alt="`${album.title} Album Art`"
-      class="w-[10rem] md:w-[15rem] object-cover aspect-square"
+      class="w-[10rem] md:w-[15rem] object-cover aspect-square snap-none"
       draggable="false"
     />
 
     <h1
-      class="text-5 md:text-6 font-[500] text-center mb-0 text-white"
+      class="text-5 md:text-6 font-[500] text-center mb-0 text-white snap-none"
       :title="album.title"
       :aria-label="`${album.title}`"
     >
@@ -29,7 +29,7 @@
     </h1>
 
     <h2
-      class="text-3 md:text-4 font-[500] text-center mt-1 mb-0 text-white" 
+      class="text-3 md:text-4 font-[500] text-center mt-1 mb-0 text-white snap-none" 
       :year="album.year"
       :aria-label="`${album.year}`"
     >
@@ -69,7 +69,7 @@
           delay: 600
         } 
       }"
-      class="relative lg:w-[50vw] w-[70vw] mx-auto overflow-hidden rounded-7 px-4 lg:px-6 py-5 flex-shrink-0"
+      class="relative lg:w-[50vw] w-[70vw] mx-auto overflow-hidden rounded-7 px-4 lg:px-6 py-5 flex-shrink-0 snap-none"
       :style="{ 
         boxShadow: 'var(--shadow-2)'
       }"
@@ -87,7 +87,7 @@
           } 
         }"
         :src="album.backgroundSrc"
-        class="absolute inset-0 w-full h-full object-cover -z-10"
+        class="absolute inset-0 w-full h-full object-cover -z-10  snap-none"
         draggable="false"
       />
   
@@ -104,7 +104,7 @@
             delay: 1000
           } 
         }"
-        class="relative w-full rounded-[8px] h-[70vh] lg:h-[50vh]"
+        class="relative w-full rounded-[8px] h-[70vh] lg:h-[50vh] snap-none"
       >
         <iframe
           :src="spotifyEmbedUrl"
