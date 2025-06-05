@@ -10,14 +10,7 @@
     }"
     class="header-container flex justify-between items-center px-3 mt-4"
   >    
-  <div class="flex-1"></div>  <div class="header-svg-wrapper">      
-    <img 
-        :src="headerSvgUrl"
-        alt="Ibrahim Syed"
-        class="w-7 h-auto object-contain pt-4"
-    />
-    </div>
-  <div class="flex-1 flex justify-end">
+  <div class="flex-1 flex justify-center">
     <a 
       href="https://github.com/doombot-v1/supercomplex" 
       target="_blank" 
@@ -27,7 +20,7 @@
       <img 
         :src="githubSvgUrl"
         alt="GitHub Repository"
-        class="w-4 aspect-square duration-200"
+        class="w-[1.75rem] aspect-square duration-200"
       />
     </a>
   </div>
@@ -35,7 +28,6 @@
 </template>
 
 <script setup lang="ts">
-import headerSvgUrl from '@/assets/svg/header.svg?url';
 import githubSvgUrl from '@/assets/svg/github.svg?url';
 </script>
 

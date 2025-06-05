@@ -30,6 +30,7 @@ import SpotifyLogoUrl from '@/assets/svg/Spotify.svg?url';
 import AppleMusicLogoUrl from '@/assets/svg/AppleMusic.svg?url';
 import YouTubeMusicLogoUrl from '@/assets/svg/YouTubeMusic.svg?url';
 import glass3BackgroundUrl from '@/assets/img/bg/glass-3.png';
+import TidalLogoUrl from '@/assets/svg/tidal.svg?url';
 
 
 const props = defineProps<{
@@ -45,6 +46,8 @@ const getIcon = (service: AlbumLink['service']): string => {
       return AppleMusicLogoUrl;
     case 'youtubeMusic':
       return YouTubeMusicLogoUrl;
+    case 'tidal':
+      return TidalLogoUrl;
     default:
       return '';
   }
@@ -58,6 +61,8 @@ const getServiceName = (service: AlbumLink['service']): string => {
       return 'Apple Music';
     case 'youtubeMusic':
       return 'YouTube Music';
+    case 'tidal':
+      return 'Tidal';
     default:
       return '';
   }
