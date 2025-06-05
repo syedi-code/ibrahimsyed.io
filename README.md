@@ -46,7 +46,11 @@ src/
 - Tailwind CSS
 - @vueuse/motion
 
+## To-Do
+- Abstract Album type into Project type
+- Build out full historic timeline mirroring v1 of the site
+- Add About, DOOM Labs, Gallery page
+- Remove scrollbar
+
 ## Note from DOOMBOT
-```text
 Man is a rope stretched between the animal and the Superman -- a rope over an abyss.
-```

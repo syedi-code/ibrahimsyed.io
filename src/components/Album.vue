@@ -51,7 +51,7 @@
           delay: 300
         } 
       }"
-      :links="album.links" 
+      :links="album.links"
     />    
     
     <div 
@@ -69,10 +69,7 @@
           delay: 600
         } 
       }"
-      class="relative lg:w-[50vw] w-[70vw] mx-auto overflow-hidden rounded-7 px-4 lg:px-6 py-5 flex-shrink-0 snap-none"
-      :style="{ 
-        boxShadow: 'var(--shadow-2)'
-      }"
+      class="relative lg:w-[50vw] w-[70vw] mx-auto overflow-hidden rounded-7 px-4 lg:px-6 py-5 flex-shrink-0 snap-none shadow-2"
     >
       <img 
         v-motion
@@ -104,7 +101,7 @@
             delay: 1000
           } 
         }"
-        class="relative w-full rounded-[8px] h-[70vh] lg:h-[50vh] snap-none"
+        class="relative w-full rounded-[8px] h-[70vh] lg:h-[50vh] snap-none shadow-2"
       >
         <iframe
           :src="spotifyEmbedUrl"
