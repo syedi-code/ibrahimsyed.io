@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import type { Album } from './types'
 import AlbumList from './components/AlbumList.vue'
+import Header from './components/Header.vue'
 
 // Import images
 import supercomplexAlbumArt from './assets/img/album/SUPERCOMPLEX.png'
@@ -15,12 +16,12 @@ const albums = ref<Album[]>([
     title: 'SUPERCOMPLEX',
     artist: 'Artist A',
     year: 2025,
-    albumArtSrc: supercomplexAlbumArt, // Use imported variable
-    backgroundSrc: supercomplexBackground, // Use imported variable
+    albumArtSrc: supercomplexAlbumArt,
+    backgroundSrc: supercomplexBackground,
     links: [
-      { service: 'spotify', url: 'https://open.spotify.com/album/0Az4XvOfK8phD4U8O8Nxlj' },
+      { service: 'spotify', url: 'https://open.spotify.com/album/41xOhhgo8KNni0KLe0Aztq' },
       { service: 'appleMusic', url: 'https://music.apple.com/us/album/youralbumid1' },
-      { service: 'youtubeMusic', url: 'https://music.youtube.com/playlist?list=yourplaylistid1' }
+      { service: 'youtubeMusic', url: 'https://www.youtube.com/watch?v=JW-4zC7r4sg&list=OLAK5uy_m_2_B0oPtdSpF7bFkuRaRE8vEt-3KLVVQ' }
     ]
   },
   {
@@ -28,8 +29,8 @@ const albums = ref<Album[]>([
     title: 'I Won.',
     artist: 'Artist B',
     year: 2023,
-    albumArtSrc: iwonAlbumArt, // Use imported variable
-    backgroundSrc: iwonBackground, // Use imported variable
+    albumArtSrc: iwonAlbumArt,
+    backgroundSrc: iwonBackground,
     links: [
       { service: 'spotify', url: 'https://open.spotify.com/album/0Az4XvOfK8phD4U8O8Nxlj' },
       { service: 'appleMusic', url: 'https://music.apple.com/us/album/i-won/1690302862' },
@@ -40,8 +41,9 @@ const albums = ref<Album[]>([
 </script>
 
 <template>
-  <div id="app" class="h-screen w-full overflow-hidden">
-    <AlbumList :albums="albums" />
+  <div id="app" class="h-screen w-full overflow-y-auto scroll-smooth snap-y snap-mandatory">
+    <Header class="snap-start" />
+    <AlbumList :albums="albums" class="snap-start" />
   </div>
 </template>
 
