@@ -5,7 +5,7 @@
         opacity: 1,
         transition: { 
         duration: 500,
-        delay: 100
+        delay: 2000
       } 
     }"
     class="header-container flex justify-between items-center px-3 mt-4"

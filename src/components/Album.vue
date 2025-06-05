@@ -16,7 +16,7 @@
       }"
       :src="album.albumArtSrc" 
       :alt="`${album.title} Album Art`"
-      class="w-[5rem] md:w-[15rem] object-cover aspect-square snap-none"
+      class="w-[10rem] md:w-[15rem] object-cover aspect-square snap-none"
       draggable="false"
     />
 
