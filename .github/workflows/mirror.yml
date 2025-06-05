@@ -27,6 +27,15 @@ jobs:
         run: |
           git config --local --unset-all http.https://github.com/.extraheader || true
 
+      - name: Rewrite commits to doombot identity
+        run: |
+          git filter-branch -f --env-filter '
+            export GIT_AUTHOR_NAME="doombot-v1"
+            export GIT_AUTHOR_EMAIL="noreply@github.com"
+            export GIT_COMMITTER_NAME="doombot-v1"
+            export GIT_COMMITTER_EMAIL="noreply@github.com"
+          ' -- --branches main
+
       - name: Push to public mirror
         env:
           MIRROR_URL: ${{ secrets.MIRROR_URL }}
