@@ -16,12 +16,12 @@
       }"
       :src="album.albumArtSrc" 
       :alt="`${album.title} Album Art`"
-      class="w-[10rem] md:w-[15rem] object-cover aspect-square snap-none"
+      class="w-[5rem] md:w-[15rem] object-cover aspect-square snap-none"
       draggable="false"
     />
 
     <h1
-      class="text-5 md:text-6 font-[500] text-center mb-0 text-white snap-none"
+      class="text-3 md:text-6 font-[500] text-center mb-0 text-white snap-none"
       :title="album.title"
       :aria-label="`${album.title}`"
     >
@@ -29,7 +29,7 @@
     </h1>
 
     <h2
-      class="text-3 md:text-4 font-[500] text-center mt-1 mb-0 text-white snap-none" 
+      class="text-2 md:text-4 font-[500] text-center mt-1 mb-0 text-white snap-none" 
       :year="album.year"
       :aria-label="`${album.year}`"
     >
