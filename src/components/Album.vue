@@ -69,7 +69,7 @@
           delay: 600
         } 
       }"
-      class="relative lg:w-[50vw] w-[70vw] mx-auto overflow-hidden rounded-7 px-4 lg:px-6 py-5 flex-shrink-0 snap-none shadow-2"
+      class="relative lg:w-[50vw] w-[70vw] mx-auto overflow-hidden rounded-5 px-4 lg:px-6 py-5 flex-shrink-0 snap-none shadow-2"
     >
       <img 
         v-motion

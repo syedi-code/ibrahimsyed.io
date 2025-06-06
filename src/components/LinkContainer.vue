@@ -1,7 +1,13 @@
 <template>
   <div 
     v-if="props.links && props.links.length > 0" 
-    class="flex justify-center items-center gap-4 my-3 lg:my-4 px-3 lg:px-4 py-3 rounded-4 bg-cover bg-center bg-no-repeat scale-75 lg:scale-100 snap-none shadow-3" 
+    class="flex justify-center items-center 
+          gap-[clamp(1rem,5vw,2rem)]
+          my-3 lg:my-4
+           px-3 lg:px-4 py-3
+           max-w-[90vw] mx-auto
+           rounded-4 bg-cover bg-center bg-no-repeat
+           scale-75 lg:scale-100 snap-none shadow-3" 
     :style="{ backgroundImage: `url(${glass3BackgroundUrl})` }"
   >
     <a 
@@ -17,7 +23,10 @@
         v-if="getIcon(link.service)" 
         :src="getIcon(link.service)" 
         :alt="`${getServiceName(link.service)} logo`"
-        class="block w-[2.5rem] aspect-square scale-on-press" 
+        class="block
+               w-[clamp(0.5rem,10vw,2.5rem)]
+               aspect-square
+               scale-on-press" 
       />
     </a>
   </div>
@@ -31,6 +40,7 @@ import AppleMusicLogoUrl from '@/assets/svg/AppleMusic.svg?url';
 import YouTubeMusicLogoUrl from '@/assets/svg/YouTubeMusic.svg?url';
 import glass3BackgroundUrl from '@/assets/img/bg/glass-3.png';
 import TidalLogoUrl from '@/assets/svg/tidal.svg?url';
+import SoundcloudLogoUrl from '@/assets/svg/soundcloud.svg?url';
 
 
 const props = defineProps<{
@@ -48,6 +58,8 @@ const getIcon = (service: AlbumLink['service']): string => {
       return YouTubeMusicLogoUrl;
     case 'tidal':
       return TidalLogoUrl;
+    case 'soundcloud':
+      return SoundcloudLogoUrl;
     default:
       return '';
   }
@@ -63,6 +75,8 @@ const getServiceName = (service: AlbumLink['service']): string => {
       return 'YouTube Music';
     case 'tidal':
       return 'Tidal';
+    case 'soundcloud':
+      return 'SoundCloud';
     default:
       return '';
   }

@@ -1,5 +1,5 @@
 export interface AlbumLink {
-  service: 'spotify' | 'appleMusic' | 'youtubeMusic' | 'tidal';
+  service: 'spotify' | 'appleMusic' | 'youtubeMusic' | 'tidal' | 'soundcloud';
   url: string;
 }
 
