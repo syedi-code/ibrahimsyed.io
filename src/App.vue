@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import type { Album } from './types'
 import AlbumList from './components/AlbumList.vue'
 import Header from './components/Header.vue'
+import StickerBackground from './components/StickerBackground.vue'; // Import the new component
 
 // Import images
 import supercomplexAlbumArt from './assets/img/album/SUPERCOMPLEX.png'
@@ -45,11 +46,16 @@ const albums = ref<Album[]>([
 </script>
 
 <template>
-  <div id="app" class="h-screen w-full overflow-y-auto scroll-smooth snap-y snap-mandatory">
+  <StickerBackground /> {/* Add the sticker background here */}
+  <div
+    id="app"
+    class="h-screen w-full overflow-y-auto scroll-smooth snap-y snap-mandatory"
+  >
     <Header class="snap-start" />
     <AlbumList :albums="albums" />
   </div>
 </template>
 
 <style scoped>
+/* App.vue specific styles if any */
 </style>

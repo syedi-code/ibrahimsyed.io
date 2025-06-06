@@ -63,7 +63,8 @@
   }
 
   body {
-    @apply m-0 overflow-hidden bg-none relative;
+    /* @apply m-0 overflow-hidden bg-none relative; */ /* Remove old */
+    @apply m-0 overflow-hidden bg-black relative;   /* Set solid black background */
   }
 
   body::before {
@@ -75,6 +76,11 @@
       will-change-transform
       brightness-25;
   }
+
+  /* body::after {
+    content: '';
+    @apply fixed inset-0 bg-white/5 z-[-1];
+  } */
 
   @font-face {
     font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
