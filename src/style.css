@@ -63,7 +63,6 @@
   }
 
   body {
-    /* @apply m-0 overflow-hidden bg-none relative; */ /* Remove old */
     @apply m-0 overflow-hidden bg-black relative;   /* Set solid black background */
   }
 

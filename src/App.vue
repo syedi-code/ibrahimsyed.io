@@ -46,7 +46,7 @@ const albums = ref<Album[]>([
 </script>
 
 <template>
-  <StickerBackground /> {/* Add the sticker background here */}
+  <StickerBackground />
   <div
     id="app"
     class="h-screen w-full overflow-y-auto scroll-smooth snap-y snap-mandatory"
