@@ -12,7 +12,7 @@
   >    
   <div class="flex-1 flex justify-center">
     <a 
-      href="https://github.com/doombot-v1/supercomplex" 
+      href="https://github.com/doombot-v1/socialeating.studio" 
       target="_blank" 
       rel="noopener noreferrer"
       class="github-link pt-4"

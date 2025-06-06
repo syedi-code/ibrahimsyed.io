@@ -76,12 +76,6 @@
       brightness-25;
   }
 
-  /* keep your subtle overlay */
-  body::after {
-    content: '';
-    @apply fixed inset-0 bg-white/5 z-[-1];
-  }
-
   @font-face {
     font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
     font-family: 'Inter';
