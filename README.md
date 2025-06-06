@@ -46,5 +46,5 @@ src/
 - Tailwind CSS
 - @vueuse/motion
 
-## Note from DOOMBOT
-Man is a rope stretched between the animal and the Superman -- a rope over an abyss.
+## Which DOOMBOT?
+The socialeating.studio public mirror is maintained by `doombot-v1`.
