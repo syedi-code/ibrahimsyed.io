@@ -70,10 +70,12 @@
     content: '';
     @apply fixed inset-0 z-[-1]
       bg-gradient-to-br
-      from-[#1B1F3B] via-[#3D52A1] to-[#648DE5]
+      from-[#202124] /* Dark charcoal, Google-esque */
+      via-[#383838]  /* Very dark gray, common in dark themes */
+      to-[#0a0a0a]   /* Deep near-black */
       bg-[length:100%_120%]
       will-change-transform
-      brightness-25;
+      brightness-25; /* Retained for a very dark, deep black feel */
   }
 
   /* body::after {
