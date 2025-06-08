@@ -40,7 +40,7 @@ const stickerRows = ref<Array<Array<StickerItem>>>([]);
 const VISUAL_STICKER_SIZE_PX = 64;
 const GAP_BETWEEN_ITEMS_PX = 24;
 const STICKER_OPACITY = 0.25;
-const MAX_ROTATION_DEG = 15;
+const MAX_ROTATION_DEG = 40;
 const SCALE_VARIATION_PERCENT = 50;
 
 const MIN_INDIVIDUAL_OPACITY_CENTER = 0.1; // Sticker opacity at the very center (e.g., 10%)
