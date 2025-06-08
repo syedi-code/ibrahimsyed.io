@@ -27,7 +27,6 @@
   --spacing-6: 4rem;
   --spacing-7: 6rem;
 
-
   --breakpoint-md: 768px;
   --breakpoint-lg: 1024px;
 
@@ -77,11 +76,6 @@
       will-change-transform
       brightness-25; /* Retained for a very dark, deep black feel */
   }
-
-  /* body::after {
-    content: '';
-    @apply fixed inset-0 bg-white/5 z-[-1];
-  } */
 
   @font-face {
     font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
