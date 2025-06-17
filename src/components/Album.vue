@@ -1,5 +1,5 @@
 <template>  
-  <div class="album-layout-container flex flex-col items-center gap-0 pb-4 pt-4">
+  <div ref="albumRootEl" class="album-layout-container flex flex-col items-center gap-0 pb-4 pt-4">
     <img 
       v-motion
       :initial="{ opacity: 0, y: 50, scale: 0.8 }"
@@ -116,9 +116,34 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, ref } from 'vue'; // Added ref
+import { useVibrate, useIntersectionObserver } from '@vueuse/core';
+const { vibrate, isSupported } = useVibrate({ pattern: [50] });
 import type { Album } from '../types' 
 import LinkContainer from './LinkContainer.vue'; 
+
+const albumRootEl = ref<HTMLElement | null>(null);
+let hasVibratedForThisElement = false;
+
+useIntersectionObserver(
+  albumRootEl,
+  ([{ isIntersecting, intersectionRatio }]) => {
+    // Log for debugging - can be removed later
+    // console.log(`Album: ${props.album.title}, isIntersecting: ${isIntersecting}, ratio: ${intersectionRatio}`);
+
+    if (isIntersecting && intersectionRatio >= 0.75 && !hasVibratedForThisElement) {
+      // console.log(`Vibrating for: ${props.album.title}`); // Log for debugging
+      vibrate();
+      hasVibratedForThisElement = true; // Ensure vibration only happens once when it becomes visible
+    } else if (!isIntersecting) {
+      hasVibratedForThisElement = false; // Reset when it's no longer visible, so it can vibrate again if it re-enters
+    }
+  },
+  {
+    threshold: 0.75, // Trigger when 75% of the element is visible
+    // root: document.querySelector('.albums-wrapper') // Optional: if we need to specify the scroll parent explicitly
+  }
+);
 
 interface Props {
   album: Album;
